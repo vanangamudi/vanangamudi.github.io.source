@@ -1,0 +1,1160 @@
+
+.. code:: ipython3
+
+    import torch
+    from torch.autograd import Variable
+
+DATASET
+-------
+
+.. code:: ipython3
+
+    dataset = [] #list of tuples (image, label)
+    
+    zer = torch.Tensor([[0, 0, 1, 1, 1],
+                        [0, 0, 1, 0, 1],
+                        [0, 0, 1, 0, 1],
+                        [0, 0, 1, 0, 1],
+                        [0, 0, 1, 1, 1],
+                       ])
+    
+    one = torch.Tensor([[0, 0, 0, 1, 0],
+                        [0, 0, 1, 1, 0],
+                        [0, 0, 0, 1, 0],
+                        [0, 0, 0, 1, 0],
+                        [0, 0, 1, 1, 1],
+                       ])
+    
+    two = torch.Tensor([[0, 0, 1, 1, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 1, 1, 1],
+                        [0, 0, 1, 0, 0],
+                        [0, 0, 1, 1, 1],
+                       ])
+    
+    thr = torch.Tensor([[0, 0, 1, 1, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 0, 1, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 1, 1, 1],
+                       ])
+    
+    fou = torch.Tensor([[0, 0, 1, 0, 1],
+                        [0, 0, 1, 0, 1],
+                        [0, 0, 1, 1, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 0, 0, 1],
+                       ])
+    
+    fiv = torch.Tensor([[0, 0, 1, 1, 1],
+                        [0, 0, 1, 0, 0],
+                        [0, 0, 1, 1, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 1, 1, 1],
+                       ])
+    
+    six = torch.Tensor([[0, 0, 1, 1, 1],
+                        [0, 0, 1, 0, 0],
+                        [0, 0, 1, 1, 1],
+                        [0, 0, 1, 0, 1],
+                        [0, 0, 1, 1, 1],
+                       ])
+    
+    sev = torch.Tensor([[0, 0, 1, 1, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 0, 0, 1],
+                       ])
+    
+    eig = torch.Tensor([[0, 0, 1, 1, 1],
+                        [0, 0, 1, 0, 1],
+                        [0, 0, 1, 1, 1],
+                        [0, 0, 1, 0, 1],
+                        [0, 0, 1, 1, 1],
+                       ])
+    
+    nin = torch.Tensor([[0, 0, 1, 1, 1],
+                        [0, 0, 1, 0, 1],
+                        [0, 0, 1, 1, 1],
+                        [0, 0, 0, 0, 1],
+                        [0, 0, 1, 1, 1],
+                       ])
+    
+    dataset.append((zer, torch.Tensor([0])))
+    dataset.append((one, torch.Tensor([1])))
+    dataset.append((two, torch.Tensor([2])))
+    dataset.append((thr, torch.Tensor([3])))
+    dataset.append((fou, torch.Tensor([4])))
+    dataset.append((fiv, torch.Tensor([5])))
+    dataset.append((six, torch.Tensor([6])))
+    dataset.append((sev, torch.Tensor([7])))
+    dataset.append((eig, torch.Tensor([8])))
+    dataset.append((nin, torch.Tensor([9])))
+    
+
+
+Take a look into how the data looks like
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    %matplotlib inline
+    import matplotlib.pyplot as plt
+    from mpl_toolkits.axes_grid1 import ImageGrid
+    from PIL import Image
+    
+    fig = plt.figure(1,(10., 50.))
+    grid = ImageGrid(fig, 111,
+                     nrows_ncols=(2 , 5),
+                     axes_pad=0.1)
+    
+    for i, (data, target) in enumerate(dataset):
+        grid[i].matshow(Image.fromarray(data.numpy()))
+    plt.show()
+
+
+
+.. image:: output_4_0.png
+
+
+MODEL
+-----
+
+.. code:: ipython3
+
+    from torch import nn
+    import torch.nn.functional as F
+    import torch.optim as optim
+    
+    class Model(nn.Module):
+        def __init__(self):
+            super(Model, self).__init__()
+            self.output_layer = nn.Linear(5*5, 10, bias=False)
+    
+        def forward(self, x):
+            x = self.output_layer(x)
+            return F.log_softmax(x)
+        
+
+.. code:: ipython3
+
+    model = Model()
+    optimizer = optim.SGD(model.parameters(), lr=1, momentum=0.1)
+
+DATASET - MODEL - OUTPUT
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    fig = plt.figure(1, (16., 16.))
+    grid = ImageGrid(fig, 111,
+                         nrows_ncols=(1, 3),
+                         axes_pad=0.1)
+    
+    
+    data = [data.view(-1) for data, target in dataset]
+    data = torch.stack(data)
+    
+    target = [target.view(-1) for data, target in dataset]
+    target = torch.stack(target).squeeze()
+    grid[0].matshow(Image.fromarray(data.numpy()))
+    grid[0].set_xlabel('DATASET', fontsize=24)
+    
+    grid[1].matshow(Image.fromarray(model.output_layer.weight.data.numpy()))
+    grid[1].set_xlabel('MODEL', fontsize=24)
+    
+    output = model(Variable(data))
+    grid[2].matshow(Image.fromarray(output.data.numpy()))
+    grid[2].set_xlabel('OUTPUT', fontsize=24)
+    
+    
+    plt.show()
+
+
+
+.. image:: output_9_0.png
+
+
+Lets try to understand what is in the picture above.
+
+The first one is the collection of all the data that we have. The second
+one is the matrix of weights connecting the input of 25 input neurons to
+10 output neurons. And the last one we will get to it little later.
+
+What is special about 25 and 10 here?
+                                     
+
+Nothing. Our dataset is a set of images of numbers each having a size of
+5x5 ==> 25. And we have how many different numbers a hand? 0,1,2...9 ==>
+10 numbers or 10 different classes of output(this will become clear in
+the next post)
+
+I can hear you screaming,
+
+"no no no, get back to the dataset? What is that weird picture on the
+left, having weird zero in the top-left, and three on the bottom-right
+and some messed up fours and eights in the middle."
+
+Let get to it. Look the picture below.
+
+.. code:: ipython3
+
+    fig = plt.figure(1,(12., 12.))
+    grid = ImageGrid(fig, 111,
+                     nrows_ncols=(2 , 5),
+                     axes_pad=0.1)
+    
+    for i, (d, t) in enumerate(dataset):
+        grid[i].matshow(Image.fromarray(d.numpy()))
+        
+    plt.show()
+    
+    fig = plt.figure(1, (100., 10.))
+    grid = ImageGrid(fig, 111,
+                         nrows_ncols=(len(dataset), 1),
+                         axes_pad=0.1)
+    
+    
+    data = [data.view(1, -1) for data, target in dataset]
+    
+    for i, d in enumerate(data):
+        grid[i].matshow(Image.fromarray(d.numpy()))
+        grid[i].set_ylabel('{}'.format(i), fontsize=36)
+
+
+
+
+.. image:: output_11_0.png
+
+
+
+.. image:: output_11_1.png
+
+
+Voila!! We have just arranged the image matrix into a vector. The reason
+is it reduces the computational complexity to a little and makes it
+easier to operate over mutiple samples of data at the same time. We saw
+that the model - matrix which connects the 25 input neurons to 10 output
+neurons. So we cannot keep the input images as matrices , if we do, then
+the result of matrix multiplication is not same as the output of the
+neural network which looks at all the pixels of the image and say how
+similar the input image is to the classes of numbers.
+
+This is important to remember, **a simple neural network looks at the
+input and try to figure out which class does this input belong to**
+
+in our case inputs are the images of numbers, and outputs are how
+similar are the classes to the input. Th output neuron with highest
+value is more closer to the input and the output neuron with least value
+is very NOT similar to the input.
+
+For example after training, if we feed the image of number 3, the output
+neurons corresponding to 3, 8, 9 and probably 7 will have larger values
+and the output neurons corresponding to 1 and 6 will have the least
+value. Don't worry if you don't understand why, it will become clearer
+as we go on.
+
+How many correct predictions without any training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Too much theory, lets get our hands dirty. Let see how many numbers did
+our model predicted correctly.
+
+.. code:: ipython3
+
+    # Remember that output = model(Variable(data))
+    pred = output.data.max(1)[1].squeeze()    
+    print(pred.size(), target.size())
+    correct = pred.eq(target.long()).sum()
+    print('correct: {}/{}'.format(correct, len(dataset)))
+
+
+.. parsed-literal::
+
+    torch.Size([10]) torch.Size([10, 1])
+    correct: 0/10
+
+
+NONE out of TEN
+^^^^^^^^^^^^^^^
+
+That is right it predicted none out of ten. We feeded our network with
+all of our data and asked it to figure what is the number that is in the
+image. Remember what we learned earlier about output neurons. The neural
+network tell us which number is present in the image by lighting up that
+corresponding neuron. Lets say if gave 6, the network will light up the
+6th neuron will be the brightest, i.e the 6th neurons value will be the
+highest compared to all other neurons.
+
+But our network above lit up wrong bulbs, for all the output. None out
+of ten. But why? Isn't neural network are supposed to smarter? Well yes
+and no. That is the difference between traditional image processing
+algorithms and neural networks.
+
+Wait, let me tell you a story, that I heard. During the second world
+war, there were skilled flight spotter. Their job was to spot and report
+if any air craft was approaching. As the war got intense, there was need
+for more spotters and there were lot of volunteers even from schools and
+colleges but there was very little time to train them. So the skilled
+spotters, listed out a set of things to look for in the enemy flights
+and asked the new volunteers to memorize them as part of the training.
+But the volunteers never got good at spotting. Ooosh, we will continue
+the story later, lets get back to the point.
+
+In classical image processing systems, we humans think, think and think
+and think a lot more and come up a set of rules or instructions, just
+like those skilled spotters. We give those instructions to the system,
+to make it understand how to process the images to extract
+information(called features - things to look for in the enemy flight)
+from them, and then use that information to make further decisions, such
+predicting what number is in the image. We feed that system with
+knowledge first before asking it to do anything for us.
+
+But did we feed any knowledge to network? We just told it the input size
+is 25 and output size is 10. How can you expect someone to guess what is
+in your hand, by just telling them its size. That is rude of you. Shame
+on you. Okay okay. How do we make the system more knowledgable about the
+input? Training. The holy grail of deep learning.
+
+What is training?
+~~~~~~~~~~~~~~~~~
+
+We know that the knowledge of the neural network is in the weights of
+the connections - represented as matrix above. We also know that by
+multiplying this matrix by an input image vector we will get an output
+which is a set of scores that describes, how similar the input is to the
+output neurons.
+
+Imagine giving random values to the weights and feed the network with
+our data and see whether it predicts all our numbers correctly. If it
+did, fine and dandy, but if not give random values to the weights again
+and repeat the process until our network predicts all the numbers
+correctly. That is training in most simple form.
+
+But think about how long will it take to find such random magical values
+for every weight in the network to make it work as expected. We don't
+know that for sure. right? You wanna continue the story. don't you?
+Alright.
+
+The skilled people tried as much as they can to identify the
+distinguishing features of the home and enemy air crafts and tried to
+make the volunteers understand them. It never worked. Then they changes
+the strategy. They put them on the job and made them learn themselves.
+i.e every skilled spotter will have ten volunteers and whenever an
+aircraft is seen, the volunteers will shout the kind of the plane, say
+'german'. Then the skilled one, will reveal the correct answer. This
+technique was extrememly sucessful, a spotter sent in an emergency
+message not only identifying it as a German aircraft, but also the
+correct make and
+model..\ `more <http://www.colebrookhistoricalsociety.org/PDF%20Images/Air%20Spotters%20of%20WWII.pdf>`__
+
+Hey, why don't we try the same with our network? Lets feed the images
+into it and shout the answer into its tiny little output neurons so that
+it can update its weights by itself. Now I know you're asking how can we
+expect, a dumb network which cannot even predict a number in an image to
+train itself? Well that is where it gets interesting. I must now ask you
+to read backpropogation algorithm to understand how the training works.
+Take your time, this is at the heart of deep learning and neural
+networks. I suggest Michael Nielson's
+`book <http://neuralnetworksanddeeplearning.com/chap2.html>`__
+
+So now you understand why it predicted none out of ten correctly.
+
+lets combine the above two blocks and make a function out of it
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    def test_and_print(model, dataset, plot=True):
+          
+        data = [data.view(-1) for data, target in dataset]
+        data = torch.stack(data).squeeze()
+    
+        target = [target.view(-1) for data, target in dataset]
+        target = torch.stack(target).squeeze()
+        output = model(Variable(data))
+            
+        loss = F.nll_loss(output, Variable(target.long()))
+        
+        dataset_img = Image.fromarray(data.numpy())
+        model_img   = Image.fromarray(model.output_layer.weight.data.numpy())
+        output_img  = Image.fromarray(output.data.numpy())
+        
+        pred = output.data.max(1)[1] 
+        correct = pred.eq(target.long()).sum()
+        
+        if plot:
+            fig = plt.figure(1,(16., 16.))
+            grid = ImageGrid(fig, 111,
+                             nrows_ncols=(1 , 3),
+                             axes_pad=0.1)
+    
+            grid[0].matshow(dataset_img)
+            grid[0].set_xlabel('DATASET', fontsize=24)
+    
+            grid[1].matshow(model_img)
+            grid[1].set_xlabel('MODEL', fontsize=24)
+            
+            grid[2].matshow(output_img)
+            grid[2].set_xlabel('OUTPUT', fontsize=24)
+            
+            plt.show()    
+            
+        print('correct: {}/{}, loss:{}'.format(correct, len(dataset), loss.data[0]))
+            
+        return dataset_img, model_img, output_img 
+
+Lets take a closer look at DATASET - MODEL - OUTPUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*with help from,
+https://stackoverflow.com/questions/20998083/show-the-values-in-the-grid-using-matplotlib*
+
+and understand what those colors mean.
+
+.. code:: ipython3
+
+    import numpy
+    fig = plt.figure(1, (80., 80.))
+    grid = ImageGrid(fig, 111,
+                         nrows_ncols=(1, 3),
+                         axes_pad=0.5)
+    
+    
+    data = [data.view(-1) for data, target in dataset]
+    data = torch.stack(data)
+    
+    target = [target.view(-1) for data, target in dataset]
+    target = torch.stack(target)
+    
+    grid[0].matshow(Image.fromarray(data.numpy()))
+    grid[0].set_xlabel('DATASET', fontsize=72)
+    for (x,y), val in numpy.ndenumerate(data.numpy()):
+         grid[0].text(y, x, '{:d}'.format(int(val)), ha='center', va='center', fontsize=24,
+                bbox=dict(boxstyle='round', facecolor='white', edgecolor='white'))
+    
+            
+    grid[1].matshow(Image.fromarray(model.output_layer.weight.data.numpy()))
+    grid[1].set_xlabel('MODEL', fontsize=72)
+    for (x,y), val in numpy.ndenumerate(model.output_layer.weight.data.numpy()):
+         grid[1].text(y, x, '{:0.04f}'.format(val), ha='center', va='center',fontsize=16,
+                bbox=dict(boxstyle='round', facecolor='white', edgecolor='white'))
+    
+    output = model(Variable(data))
+    grid[2].matshow(Image.fromarray(output.data.numpy()))
+    grid[2].set_xlabel('OUTPUT', fontsize=72)
+    for (x,y), val in numpy.ndenumerate(output.data.numpy()):
+         grid[2].text(y, x, '{:0.04f}'.format(val), ha='center', va='center',fontsize=16,
+                bbox=dict(boxstyle='round', facecolor='white', edgecolor='white'))
+    
+    
+    plt.show()
+
+
+
+.. image:: output_19_0.png
+
+
+If you zoom in the picture you will see numbers corresponding to the
+colors - violet means the lowest value, and yellow is the highest
+values. i.e violet does not mean 0 and yellow does not mean 1 as you
+might think from the dataset image. Take look at the following. It shows
+a single row from the output image. Go on pick the darkest square in the
+output above. First row itself has the darkeset one right, corresponding
+to number 0, i.e *data[0]* the least value from that row is **-3.2037**
+
+.. code:: ipython3
+
+    print(model(Variable(data[0].view(1, -1))))
+
+
+.. parsed-literal::
+
+    Variable containing:
+    -2.1720 -2.6992 -2.3346 -3.2037 -2.2863 -2.7303 -1.9134 -3.1497 -2.5078 -1.4163
+    [torch.FloatTensor of size 1x10]
+    
+
+
+Similarly the brightest yellow is in the second last row, corresonding
+to number 8 whose value is **-1.3997** you can see below. The reason I
+am stressing about this fact is, this is will influence how we interpret
+the following images.
+
+.. code:: ipython3
+
+    print(model(Variable(data[8].view(1, -1))))
+
+
+.. parsed-literal::
+
+    Variable containing:
+    -2.3037 -2.7743 -2.3580 -3.0758 -2.3436 -2.6253 -2.0029 -3.0572 -2.3033 -1.3997
+    [torch.FloatTensor of size 1x10]
+    
+
+
+.. code:: ipython3
+
+    import numpy
+    def plot_with_values(model, dataset):
+        fig = plt.figure(1, (80., 80.))
+        grid = ImageGrid(fig, 111,
+                             nrows_ncols=(1, 3),
+                             axes_pad=0.5)
+    
+    
+        data = [data.view(-1) for data, target in dataset]
+        data = torch.stack(data)
+    
+        target = [target.view(-1) for data, target in dataset]
+        target = torch.stack(target)
+    
+        grid[0].matshow(Image.fromarray(data.numpy()))
+        grid[0].set_xlabel('DATASET', fontsize=144)
+        for (x,y), val in numpy.ndenumerate(data.numpy()):
+             grid[0].text(y, x, '{:d}'.format(int(val)), ha='center', va='center', fontsize=24,
+                    bbox=dict(boxstyle='round', facecolor='white', edgecolor='white'))
+    
+    
+        grid[1].matshow(Image.fromarray(model.output_layer.weight.data.numpy()))
+        grid[1].set_xlabel('MODEL', fontsize=144)
+        for (x,y), val in numpy.ndenumerate(model.output_layer.weight.data.numpy()):
+             grid[1].text(y, x, '{:0.04f}'.format(val), ha='center', va='center',fontsize=16,
+                    bbox=dict(boxstyle='round', facecolor='white', edgecolor='white'))
+    
+        output = model(Variable(data))
+        grid[2].matshow(Image.fromarray(output.data.numpy()))
+        grid[2].set_xlabel('OUTPUT', fontsize=144)
+        for (x,y), val in numpy.ndenumerate(output.data.numpy()):
+             grid[2].text(y, x, '{:0.04f}'.format(val), ha='center', va='center',fontsize=16,
+                    bbox=dict(boxstyle='round', facecolor='white', edgecolor='white'))
+    
+    
+        plt.show()
+
+What does each row mean?
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+DATASET
+'''''''
+
+numbers, each row is a number. first one is 0 second one is 1 and so on.
+##### MODEL weights corresponding to pixels in the image for a number.
+first row is for 0 and last one is for 9. ##### OUTPUT scores of
+similarity. relative resemblance of the input number to all output
+numbers. First row contains scores of 0, how similar it is to all other
+numbers first square in the first row is how simlilar 0 is to 0, second
+square similar it is to 1. Now the scores are not only incorrect but
+stupid. This will become better and clear as we train the network. Lets
+take look at the DATASET-MODEL-OUTPUT trinity once again before training
+
+Before Training
+~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    test_and_print(model, dataset)
+    plot_with_values(model, dataset)
+
+
+
+.. image:: output_27_0.png
+
+
+.. parsed-literal::
+
+    correct: 2/10, loss:5.612292289733887
+
+
+
+.. image:: output_27_2.png
+
+
+Training
+--------
+
+Train for a single epoch
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Training for a single epoch means run over all the ten images we have
+now.
+
+.. code:: ipython3
+
+    def train(model, optim, dataset):
+        model.train()
+        avg_loss = 0
+        for i, (data, target) in enumerate(dataset):
+            data = data.view(1, -1)
+            data, target = Variable(data), Variable(target.long())
+            optimizer.zero_grad()
+            output = model(data)
+    
+            loss = F.nll_loss(output, target)
+            loss.backward()
+            optimizer.step()
+            avg_loss += loss.data[0]
+            
+        return avg_loss/len(dataset)
+
+Train the model once and see how it works
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: ipython3
+
+    train(model, optimizer, dataset)
+
+
+
+
+.. parsed-literal::
+
+    5.025314002856613
+
+
+
+.. code:: ipython3
+
+    test_and_print(model, dataset)
+    plot_with_values(model, dataset)
+
+
+
+.. image:: output_33_0.png
+
+
+.. parsed-literal::
+
+    correct: 2/10, loss:4.517192363739014
+
+
+
+.. image:: output_33_2.png
+
+
+train once again
+^^^^^^^^^^^^^^^^
+
+.. code:: ipython3
+
+    train(model, optimizer, dataset)
+
+
+
+
+.. parsed-literal::
+
+    6.229383989237249
+
+
+
+.. code:: ipython3
+
+    test_and_print(model, dataset)
+    plot_with_values(model, dataset)
+
+
+
+.. image:: output_36_0.png
+
+
+.. parsed-literal::
+
+    correct: 2/10, loss:5.612292289733887
+
+
+
+.. image:: output_36_2.png
+
+
+As you can see the diagonal of the output matrix is getting brighter and
+brighter.
+
+That is what we want right? For each number, say for number 0. the first
+square in first row should be the brightest one. 1. the second square in
+second row should be the brightest one 2. the third square in third row
+should be the brightest one and so on.
+
+Lets see the numbers directly.
+
+.. code:: ipython3
+
+    print(data)
+    print(model.output_layer.weight.data)
+    print(output.data)
+
+
+.. parsed-literal::
+
+    
+    
+    Columns 0 to 12 
+        0     0     1     1     1     0     0     1     0     1     0     0     1
+        0     0     0     1     0     0     0     1     1     0     0     0     0
+        0     0     1     1     1     0     0     0     0     1     0     0     1
+        0     0     1     1     1     0     0     0     0     1     0     0     0
+        0     0     1     0     1     0     0     1     0     1     0     0     1
+        0     0     1     1     1     0     0     1     0     0     0     0     1
+        0     0     1     1     1     0     0     1     0     0     0     0     1
+        0     0     1     1     1     0     0     0     0     1     0     0     0
+        0     0     1     1     1     0     0     1     0     1     0     0     1
+        0     0     1     1     1     0     0     1     0     1     0     0     1
+    
+    Columns 13 to 24 
+        0     1     0     0     1     0     1     0     0     1     1     1
+        1     0     0     0     0     1     0     0     0     1     1     1
+        1     1     0     0     1     0     0     0     0     1     1     1
+        1     1     0     0     0     0     1     0     0     1     1     1
+        1     1     0     0     0     0     1     0     0     0     0     1
+        1     1     0     0     0     0     1     0     0     1     1     1
+        1     1     0     0     1     0     1     0     0     1     1     1
+        0     1     0     0     0     0     1     0     0     0     0     1
+        1     1     0     0     1     0     1     0     0     1     1     1
+        1     1     0     0     0     0     1     0     0     1     1     1
+    [torch.FloatTensor of size 10x25]
+    
+    
+    
+    Columns 0 to 5 
+    -2.1409e-02  4.2460e-03 -1.2784e-01 -9.2460e-01  2.2646e-01 -1.6198e-01
+    -1.7675e-01 -1.5970e-01 -5.5067e-01  5.3697e-01 -6.8309e-01 -9.3652e-02
+     1.2107e-01 -3.7729e-03 -1.2085e-01 -2.7483e-01 -1.0604e-01 -2.0264e-02
+    -1.4431e-01  1.8848e-01 -4.8268e-01  1.6243e+00 -4.7103e-01 -1.2424e-01
+    -8.4964e-02  1.3595e-01  8.2023e-02 -2.3063e+00  6.9857e-02 -7.0763e-02
+    -1.8295e-01 -1.3728e-01 -2.6704e-01 -2.1062e-01 -2.4467e-01  4.2020e-02
+    -1.3971e-01 -1.7245e-01 -5.2512e-01 -5.2434e-01 -5.6130e-01  5.2664e-02
+    -2.2362e-05  3.4310e-07  9.5566e-01  1.2486e+00  1.1215e+00  7.6289e-02
+    -5.5967e-02 -2.0803e-02  1.0438e-01  1.4612e-02 -8.5276e-02 -1.2986e-01
+     1.0088e-01 -1.2029e-02  7.5389e-01  7.1461e-01  7.7840e-01  6.5960e-03
+    
+    Columns 6 to 11 
+    -3.1649e-02  1.1384e+00 -1.1480e+00  1.7545e-01  1.7853e-01 -6.7999e-03
+    -6.8279e-02  7.8894e-01  9.4570e-01 -4.1318e-01 -1.0593e-01  1.4646e-01
+     4.0769e-02 -1.0477e-01  1.3396e-01  1.7865e-03 -8.4921e-02 -3.6588e-02
+     1.3825e-01 -2.6876e+00 -1.9398e-01  2.6879e-01 -1.3638e-01  1.4243e-01
+    -1.0103e-01  3.4419e-01 -1.2307e-01  1.4506e+00 -9.0435e-02  1.9610e-01
+     4.1847e-02 -7.2008e-02 -1.5228e-01 -2.7651e-01 -4.1503e-02  1.3833e-01
+    -1.8495e-01  6.0923e-01  4.7509e-02 -2.8791e+00  9.2975e-02 -1.2441e-01
+     1.8534e-01 -9.9896e-01  4.5080e-02  1.1106e+00  1.4632e-01  1.9500e-01
+     9.2784e-02  3.3228e-02  1.6034e-01 -2.1986e-01  1.1957e-01  2.8319e-02
+     7.8399e-02  9.5756e-01 -1.1282e-01  9.0589e-01 -1.6549e-01  1.9607e-01
+    
+    Columns 12 to 17 
+     1.7040e-01 -2.8453e+00 -2.3460e-02 -3.9600e-02  1.9960e-01  3.8225e-01
+    -6.1945e-01  6.5375e-01 -6.4628e-01  1.6838e-01  5.6368e-02 -3.6657e-01
+     2.1246e+00 -1.2438e-01  6.3885e-03  1.9497e-01  1.0285e-01  2.0309e+00
+    -2.6819e+00 -2.8137e-01 -3.0056e-01 -1.4555e-01  4.7257e-02 -1.3722e-01
+     6.0960e-01  4.6798e-01 -2.0350e-01 -1.4253e-01  1.5675e-01 -2.6489e-01
+     7.6892e-02 -4.7542e-02 -2.6124e-01  1.5899e-01  6.9080e-02 -2.1853e+00
+     6.5536e-01  7.3328e-01 -6.0622e-01 -1.8997e-01  4.8286e-02  6.2121e-01
+    -8.1130e-01 -6.0516e-01  1.0741e+00 -1.2013e-01  4.1172e-02 -7.6751e-01
+     9.1453e-02  6.6864e-02 -1.4625e-01 -5.4003e-02  5.9834e-02  2.0818e+00
+     8.9738e-01  2.1355e+00  9.2207e-01  3.1551e-02 -6.6280e-02 -1.3800e+00
+    
+    Columns 18 to 23 
+    -8.9352e-01  2.0858e+00  1.7814e-01  4.8872e-02 -8.2379e-01 -1.0105e+00
+     1.2774e+00 -4.2619e-01  1.1048e-01  1.8686e-02  5.1238e-01  5.1993e-01
+     3.1865e-02 -2.3320e+00 -3.7356e-02 -1.3884e-01 -2.7684e-01 -1.5349e-02
+    -7.1277e-02 -2.7990e-01  1.3008e-01 -3.7282e-02  1.8002e+00  1.6977e+00
+    -6.3949e-02  3.4460e-02  1.7473e-01 -1.7493e-02 -1.6987e+00 -1.6962e+00
+     1.1112e-01  4.3918e-02 -1.0419e-01  1.5245e-02  4.3709e-02 -2.7670e-01
+     1.4553e-01 -7.1268e-01  1.8934e-01 -6.1015e-02  4.4298e-01  4.7727e-01
+    -4.3424e-02  1.1260e+00  7.9789e-02 -1.1804e-01 -8.8973e-01 -7.3535e-01
+     1.3687e-01 -2.0125e-02  1.5918e-01  3.5658e-02  1.5523e-02 -2.8574e-02
+     1.7359e-01  7.8479e-01  2.7161e-02 -1.3845e-01  6.6989e-01  1.0438e+00
+    
+    Columns 24 to 24 
+    -9.7401e-01
+     4.8338e-01
+    -9.6530e-02
+    -4.5731e-01
+     1.0194e-01
+    -7.3102e-02
+    -6.9555e-01
+     1.2106e+00
+    -1.0058e-01
+     8.9773e-01
+    [torch.FloatTensor of size 10x25]
+    
+    
+    -1.8951 -3.0990 -2.4551 -3.0093 -1.7739 -2.6089 -2.5364 -2.0660 -2.1625 -2.2514
+    -2.1781 -2.7517 -2.5426 -2.8550 -2.4796 -2.4915 -2.2114 -2.0888 -1.8542 -2.0388
+    -2.1145 -2.6975 -2.5567 -2.8537 -1.9199 -2.7830 -2.3421 -1.8379 -2.2474 -2.2321
+    -2.1322 -2.8608 -2.4920 -2.5258 -1.8850 -2.8998 -2.5453 -1.8023 -2.3346 -2.1681
+    -1.8469 -2.9699 -2.2015 -3.1667 -2.0084 -2.6576 -2.4082 -2.2481 -2.3704 -1.9320
+    -2.0919 -3.1307 -2.5809 -3.1170 -1.8169 -2.5929 -2.4064 -2.0703 -2.0027 -2.0852
+    -1.9148 -3.0944 -2.6748 -3.1971 -1.8961 -2.4784 -2.3848 -2.0387 -2.0052 -2.2390
+    -2.0944 -2.7722 -2.2755 -2.6268 -1.8789 -2.8344 -2.4311 -1.9023 -2.4157 -2.2898
+    -1.7936 -3.0717 -2.5689 -3.0730 -1.9359 -2.6488 -2.4653 -1.9917 -2.1822 -2.1618
+    -1.9710 -3.1083 -2.4753 -2.9933 -1.8570 -2.7636 -2.4873 -2.0237 -2.1800 -2.0083
+    [torch.FloatTensor of size 10x10]
+    
+
+
+Train over multiple epochs
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+means run over the all the samples multiple times.
+
+.. code:: ipython3
+
+    def train_epochs(epochs, model, optim, dataset, print_every=10):
+        snaps = []
+        for epoch in range(epochs+1):
+            avg_loss = train(model, optim, dataset)
+            if not epoch % print_every:
+                print('\n\n========================================================')
+                print('epoch: {}, loss:{}'.format(epoch, avg_loss/len(dataset)/10))
+                snaps.append(test_and_print(model, dataset))
+                
+        return snaps
+
+.. code:: ipython3
+
+    model = Model()
+    optimizer = optim.SGD(model.parameters(), lr=0.1, momentum=0.1)
+
+Lets train for 100 epochs and see how the model evolves. We see that in
+the output image, the diagonal get brigher and brighter and some other
+pixels getting darker and darker. It appears to be smoothing over time.
+Also see that after just 10 epochs the network predicts 9/10 correctly
+and then after 20 epochs it mastered the task, predicting 10/10 all the
+time. But we already know that is what we want and we know why. Lets
+focus on the model for while, because that is where the secret lies.
+
+.. code:: ipython3
+
+    snaps = train_epochs(30, model, optimizer, dataset, print_every=3)
+
+
+.. parsed-literal::
+
+    
+    
+    ========================================================
+    epoch: 0, loss:0.026460402011871338
+
+
+
+.. image:: output_43_1.png
+
+
+.. parsed-literal::
+
+    correct: 2/10, loss:2.073272466659546
+    
+    
+    ========================================================
+    epoch: 3, loss:0.021199819922447204
+
+
+
+.. image:: output_43_3.png
+
+
+.. parsed-literal::
+
+    correct: 4/10, loss:1.6355892419815063
+    
+    
+    ========================================================
+    epoch: 6, loss:0.017176918864250185
+
+
+
+.. image:: output_43_5.png
+
+
+.. parsed-literal::
+
+    correct: 8/10, loss:1.3098194599151611
+    
+    
+    ========================================================
+    epoch: 9, loss:0.014191543579101563
+
+
+
+.. image:: output_43_7.png
+
+
+.. parsed-literal::
+
+    correct: 9/10, loss:1.0765085220336914
+    
+    
+    ========================================================
+    epoch: 12, loss:0.011957092225551604
+
+
+
+.. image:: output_43_9.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.906408965587616
+    
+    
+    ========================================================
+    epoch: 15, loss:0.010259300589561463
+
+
+
+.. image:: output_43_11.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.7792903184890747
+    
+    
+    ========================================================
+    epoch: 18, loss:0.00894222415983677
+
+
+
+.. image:: output_43_13.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.6815679669380188
+    
+    
+    ========================================================
+    epoch: 21, loss:0.007896171763539314
+
+
+
+.. image:: output_43_15.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.6043521165847778
+    
+    
+    ========================================================
+    epoch: 24, loss:0.007046647027134896
+
+
+
+.. image:: output_43_17.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.5418585538864136
+    
+    
+    ========================================================
+    epoch: 27, loss:0.0063434053510427486
+
+
+
+.. image:: output_43_19.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.4902641177177429
+    
+    
+    ========================================================
+    epoch: 30, loss:0.005752057082951069
+
+
+
+.. image:: output_43_21.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.4469718337059021
+
+
+Lets put all those picture above into a single one to get a big picture
+
+.. code:: ipython3
+
+    fig = plt.figure(1, (16., 16.))
+    grid = ImageGrid(fig, 111,
+                         nrows_ncols=(len(snaps) , 3),
+                         axes_pad=0.1)
+    
+    for i, snap in enumerate(snaps):
+        for j, image in enumerate(snap):
+            grid[i * 3 + j].matshow(image)
+            
+    grid[i * 3 + 0].set_xlabel('DATASET', fontsize=24)
+    grid[i * 3 + 1].set_xlabel('MODEL', fontsize=24)
+    grid[i * 3 + 2].set_xlabel('OUTPUT', fontsize=24)
+            
+    plt.show()
+
+
+
+.. image:: output_45_0.png
+
+
+But before that, lets train it for few thousand epochs so the network
+get more clear picture of the data :)
+
+.. code:: ipython3
+
+    snaps = train_epochs(100000, model, optimizer, dataset, print_every=20000)
+
+
+.. parsed-literal::
+
+    
+    
+    ========================================================
+    epoch: 0, loss:1.258878206499503e-06
+
+
+
+.. image:: output_47_1.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.00012586693628691137
+    
+    
+    ========================================================
+    epoch: 20000, loss:1.0712449220591226e-06
+
+
+
+.. image:: output_47_3.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:0.00010710894275689498
+    
+    
+    ========================================================
+    epoch: 40000, loss:9.329484500995023e-07
+
+
+
+.. image:: output_47_5.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:9.328305895905942e-05
+    
+    
+    ========================================================
+    epoch: 60000, loss:8.258246189143392e-07
+
+
+
+.. image:: output_47_7.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:8.257329318439588e-05
+    
+    
+    ========================================================
+    epoch: 80000, loss:7.412774466502015e-07
+
+
+
+.. image:: output_47_9.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:7.412034028675407e-05
+    
+    
+    ========================================================
+    epoch: 100000, loss:6.743323947375758e-07
+
+
+
+.. image:: output_47_11.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:6.74271141178906e-05
+
+
+.. code:: ipython3
+
+    torch.save(model.state_dict(), 'model_100000.pth')
+
+.. code:: ipython3
+
+    test_and_print(model, dataset)
+    plot_with_values(model, dataset)
+
+
+
+.. image:: output_49_0.png
+
+
+.. parsed-literal::
+
+    correct: 10/10, loss:6.74271141178906e-05
+
+
+
+.. image:: output_49_2.png
+
+
+.. code:: ipython3
+
+    _model = model.output_layer.weight.data.numpy()
+    plt.figure(1, (25, 10))
+    plt.matshow(_model)
+    plt.show()
+    
+    fig = plt.figure(1,(10., 10.))
+    grid = ImageGrid(fig, 111,
+                     nrows_ncols=(2 , 5),
+                     axes_pad=0.1)
+    
+    for i, (data, target) in enumerate(dataset):
+        grid[i].matshow(Image.fromarray(data.numpy()))
+    plt.show()
+
+
+
+.. parsed-literal::
+
+    <matplotlib.figure.Figure at 0x7f12abf90208>
+
+
+
+.. image:: output_50_1.png
+
+
+
+.. image:: output_50_2.png
+
+
+Dive into the model
+-------------------
+
+At first look, the bright differentiating spots belongs to 5, 6 and 8, 9
+pairs.
+
+-  Take 8 and 9, the last two rows, the squares at index 17 are clearly
+   at extremes. To understand why look at the 17th pixel in images of 8
+   and 9. That is the only pixel distinguishing 8 and 9.
+-  Take 5 and 6, the same 17th pixel makes all the difference.
+
+Now you may ask why the rows in model matrix corresponding to 8 and 9
+are exactly same except for that one single pixel. I will let you ponder
+over that point for a while.
