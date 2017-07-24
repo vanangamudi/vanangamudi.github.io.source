@@ -1,0 +1,615 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-07-24T19:06:54.920657652"/>
+	<!-- .. title: Linear and Non-linear
+.. slug: linear-and-non-linear
+.. date: 2017-07-24 01:02:52 UTC+05:30
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+-->
+</head>
+<body lang="en-US" dir="ltr">
+<p style="margin-bottom: 0cm"><br/>
+
+</p>
+<table width="100%" cellpadding="2" cellspacing="0">
+	<colgroup>
+		<col width="58*">
+	</colgroup>
+	<colgroup>
+		<col width="44*">
+		<col width="26*">
+	</colgroup>
+	<colgroup>
+		<col width="66*">
+		<col width="1*">
+	</colgroup>
+	<colgroup>
+		<col width="61*">
+	</colgroup>
+	<tbody>
+		<tr>
+			<td colspan="2" width="40%" style="border: none; padding: 0cm">
+				<p><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><b>நேரும்
+				வரியும்</b> </span></font></font>
+				</p>
+			</td>
+			<td colspan="2" width="36%" style="border: none; padding: 0cm">
+				<p><br/>
+
+				</p>
+			</td>
+			<td colspan="2" width="24%" style="border: none; padding: 0cm">
+				<p><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" width="76%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">இரு
+				வேறிகளுக்கான உறவை வரைந்து
+				பார்த்தால் வெளிப்படும்
+				உருவம்</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">,</font></font></p>
+				<ul>
+					<li/>
+<p style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">வளைவுகளோடு
+					இருந்தால் அந்த உறவு
+					வரியுறவு</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">(</font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">வரி
+					உறவு</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">)
+					</font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">என்றும்</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">.</font></font></p>
+					<li/>
+<p><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">வளைவுகள்
+					ஏதுமில்லாது நேராக இருந்தால்
+					நேருறவு</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">(</font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">நேரிய
+					உறவு</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">)
+					</font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">என்றும்
+					அழைக்கப்படும்</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">.</font></font></p>
+				</ul>
+			</td>
+			<td colspan="2" width="24%" style="border: none; padding: 0cm">
+				<p><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" width="76%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">கீழ்க்காணும்
+				எடுத்துக்காட்டுகள் இதனை
+				தெளிவாக்கும்</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">.
+				</font></font>
+				</p>
+				<p><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>x
+				= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</b></font></font></p>
+			</td>
+			<td colspan="2" width="24%" style="border: none; padding: 0cm">
+				<p><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" width="40%" style="border: none; padding: 0cm">
+				<p><img src="data:image/png;base64,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" name="Image1" align="bottom" width="100%" height="92%" border="0"/>
+
+								</p>
+			</td>
+			<td colspan="2" width="36%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">இடப்புறம்
+				இருக்கும் அனைத்தும் உறவுகளும்
+				நேருறவுகள்</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">.
+				</font></font>
+				</p>
+			</td>
+			<td colspan="2" width="24%" style="border: none; padding: 0cm">
+				<p><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" width="40%" style="border: none; padding: 0cm">
+				<table width="100%" cellpadding="3" cellspacing="0" style="page-break-inside: avoid">
+					<col width="51*">
+					<col width="51*">
+					<col width="51*">
+					<col width="51*">
+					<col width="51*">
+					<tr valign="top">
+						<td width="20%" bgcolor="#336633" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="center"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>x</b></font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="center"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>x<sup>2</sup></b></font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="center"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>x<sup>3</sup></b></font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="center"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>x<sup>4</sup></b></font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border: 1px double #808080; padding: 0.1cm">
+							<p align="center"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>x<sup>5</sup></b></font></font></font></p>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">1</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">1</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">1</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">1</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">1</font></font></font></p>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">2</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">4</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">8</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">16</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">32</font></font></font></p>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">3</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">9</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">27</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">81</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">243</font></font></font></p>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">4</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">16</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">64</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">256</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">1024</font></font></font></p>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">5</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">25</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">125</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">625</font></font></font></p>
+						</td>
+						<td width="20%" bgcolor="#336633" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+							<p align="right"><font color="#ffffff"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">3125</font></font></font></p>
+						</td>
+					</tr>
+				</table>
+				<p style="margin-bottom: 0cm"><br/>
+
+				</p>
+			</td>
+			<td colspan="2" width="36%" style="border: none; padding: 0cm">
+				<p align="left" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><font color="#000000"><span lang="hi-IN">கீழிருக்கும்
+				இருபடங்களும் வரியுறவை
+				காட்டுகின்றன</span></font></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#000000"><b>.
+				x</b></font></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><font color="#000000"><span lang="hi-IN">சின்
+				ஒவ்வொரு ஏற்றத்திற்கும்</span></font></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#000000"><b>,
+				y</b></font></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><font color="#000000"><span lang="hi-IN">யிக்கான
+				ஏற்றம் கொஞ்சம் சீற்றத்தோடு
+				உள்ளதைக் காணலாம்</span></font></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#000000"><b>.</b></font></font></font></p>
+			</td>
+			<td colspan="2" width="24%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" width="40%" height="245" style="border: none; padding: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="center" style="margin-bottom: 0cm"><font color="#ffffff"><img src="data:image/png;base64,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" name="Image3" align="bottom" width="100%" height="58%" border="0"/>
+
+				</font>
+				</p>
+			</td>
+			<td colspan="4" width="60%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p style="margin-bottom: 0cm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXoAAAD8CAYAAAB5Pm/hAAAACXBIWXMAAAsSAAALEgHS3X78AAA2x0lEQVR4nO2dCUBVZdrH/1xAUARFRGVTBHHfUERFLZeyNNNs0yxzK2uyHKe9ppmaGpv62mfKynIt19TK1EpTUZFNURRRRAVUFBQVBUVl/d7nnIOigV7kHs5yn9/3/efcc+7l3ufac/73Pe953+d1AsMwDGNqnLQOgGEYhlEXNnqGYRiTw0bPMAxjctjoGYZhTA4bPcMwjMlho2cYhjE5bPQMwzAmh42eYRjG5LDRMwzDmBxdGL2Xl1dZYGCg1mEwJiUhIeGU2Hhr8dmc24yaWJvbujB6OhHi176ndRiMSXH0uvOwVp/Nuc2oibW5rQujZxiGYdSDjZ5hGMbksNEzhueXI+3wnzUpWPJULwQ4xGgdDsPYjAk/eaBhPWd8Mvh0jd6HjZ4xNAl53fDSD3EIbd6QTZ4xFauOtsem1J3457D2Yo+NnrFTjpT2xuT5W+HvWRfzR9UBSi9oHRLD2IRSB1e8/UsyOvs3wPj2h2r8fmz0jCEpsnhi4uxt0uPZ43vAuZRb84x5eGODB3IL8jB3QrjY21bj92OjZwzJuKWFyMy9iAVP9kRzi32bfPqRU4iKP4g9+4/jRE4eHC0WeDaoi9bBTXF3/w5o7u+ldYhMNdh2NhSLt8Vi8m1BaF+35iZPsNEzhuOlP7wRm5aJT0d1RXePHVqHozlvvP/zNftFKEHWySKhPGyOPYhnxt2OiB7BGkXHVJfXfkySuiNf7XXMZu/JRs8YihmJLbB8Ryqm3RGC4S32aR2OLghq3hj9eoWgYxtfeDd2R1ERGf05rFq3G/E7M7D4521s9AbhvzuaIy3nAOZO6CH2dtvsfdnoGcOw+mh7fLh2J0aG+mFqtyNah6Mb3nllxDX7zk6OCG7hjQmj+0hGX3CxUKPImOqQVtwLMzZuwfAuvrjN23YmT9iN0R9IP4nNMalISjmGM2cL4OHuKrWERtzVBcGBTbQOj7kJO/O74YUf4hAe2Agf3XlK63B0zaXLRTiZk4df/kiS9vtwa94QvL4iCXXrOOIfNJyyaItN39tujP6tD3+5Zj9XmH3C2SNI2H0Yf31iEMJDW2oUGXMzMssi8OT8rfBt4Ip5oxvwMMoqeHTKrGv2vb3qY/R9PTBkYAeNImKsZenB1ojPSML7D3SCl41NnrAbo2/V0hsD+7RFhza+Umv+ePY5zFmyFQfTc7B05XY2ep1C44knzIlHaVmZNIzSpTRW65AMQ975S6JBcwHin47RMaed++HdNZHo2bIRHgpOVeUz7Mbo//Xi8Gv2AwO88My4/nj+rR+Qc/q8RlExN+PxZU44ciYP30/qiUBHNvkbseCLSdI2Xxg8Dblc9NM2/B65FxaLBY890FPj6JiqeHvVXlwqKsW793cSe+rkuN0YfWW4ujpL22ZNGmgcCVMZr27wRvShTHz0UBf0aLhT63AMg3t9V3Ru7y/l9d/eXIro7YfY6HXKppzO+GXXNvztjtZoqWJDxq6Nfs16+WZVr+7cbaM3vtodiKXb92PqwFYY2TJF63AMSXFJibS9yKNudMsbP+5BsLcbnuum7pIJdmv0W7cdxKp1SWja2B1DB3XSOhymAr9mdsD//bZDGmY2Leyo1uFown9nbUDcjnT4+3jivb+PhIODg3S8rKwMr07/EZlZuejdPQjPThyA9/73G+64rS1CgprCrV4dXCgoxKH0k1iyMkH6mzbBTbX8KkwV/CfGF8fOpmPpU73FnroT/2pi9AFC84Uoi+h2z0yhz4QaCS0RChTKEHpYKLcmQVZGdU6E6yGT/3LeZtRxdsTfJt8Blzp2+3unOxLPd8fzS2MR1sITn95Vs4p9VjBbaJjQSaGOyrGq8pcSjPJ7qFCB0HioeHZOGBWBlIPZUh7HJqShd5g8RDJme5p0zMvTDRNGR0jHaMgwqTLI+LnbRn/svdgDs6Ki8Eh4AMIaqD+7uyYOVyz0AuRkdxei5sM6yCfAeiFaP+1VRa/UKMpKqM6JUJENUSmYtShK/DBYMGVCfwT4NbJ1aMwtcgwRUjXKph6umPVoS5FhyWp/5FyhzyE3WMqhfK0sf4cIhSgi5/xS2aoC9bM/9Vg//N+MtVi+egd6dguSGjEr1tC9ijKprIFbPRfptW8+Pwwbo/cjef9x5J4rgJOjBU3ElSr109PVqmeDemqFydwir61IQiM3F7wzIE9uJqtMTYw+SxGRL0Tz0f2EaJpef+X4PKFIqGD01TkRyvl1wx58vzwO1Dh7YkwfhHUJtHVYzC1CwygnztmGwuJSLJ7cA+7FtTLCZjPklntFqspfOk4/CHRaUnANhXxw9RywOV06BGBQv7ZYvyVFugql/KbSBsMHd0HbEJ8rr6PiZa25e8YwzNkbjKRje/H5mFBYyvbWymfaqs8iUChUiFyUMq48+bOVfVWw9kQgfvx1J5atki+RJoqWfv+INmqFxdwC45c7I/1UHuZPCkeQk6bDKKvKX2rEVLxhkKkcU83oiTEjw5G075jSgAGa+3nigWHd1fxIRkWyLH3w0dpNGNDGG0P9a8fkCVsYfX2h5ULThPKue64MVV+YTFaEnJycW/5wa0+EcpMnZi+OllSRL99/FB7iKoGpff4e2QRRB4/igwc7o5dnotbhVORG+XsjbJLbxMVLRTh/4RJcXJyl0TMXLzpKtWs4V43JP37aI01ge+e+jiKzom/+BzaipkZPA9HJ5BcIrVCOncDVS1ranqzib2cqgre39y33UvGJYGy+SWqJRfEpmDIgGA8E7dc6HKKq/KW7nQEVXuevHKsMm+Q2MWfxVpHPRRj7YC+pbMfSXxIwd0k0pk4aWJO3ZTSARpNtSNmBN+5pB99aNHmiJkZPoxCouAb1zX9c4fhKoXGQb2bR9uc//6ntsPZEKJ81yOiHtcc74L3fdmBYZx+80CNT63DKqSp/6fizQosh34Q9B5W7baK3HULC7iPSyLK+4SHSuPj1USnSaLP4bulctsNA0D2ot35JRkc/D0zskFbrn18To+8jNFaIZh0lKsdeh3yCLBUiZ6VZAA/X4DNuCJ8IxiXpQhimLYlB14CG+O/dZ7QKYxHkG6+NIfe5v4mq83cN5KGVByEPr5ygZmDn8i9i3lK51TdqeHdYLA6oY3HCqBFhmDF3E2Yv2irdh+IrV2Pwz8gGOH3+HOaMpzrztlk1qjrUxOijILfqK2NQDd7XKvhEMC7HHSIwaV40vN1dMGtsB6Bou1ahPFLF8cryl7pgpqgYyzXQler5gkK0DmqCbp1bXDkeERaM3zYkI+3IKcxdLK5cn+AuHL2TkNcNC+Ni8ETfljZbGrC6GHamEJ8IxmXS3O24XFyCxZN7omFRnNbh6JJpT95R6XGaGHj9QiOMvqE6834N6+L1iOOaxWBYo+cTwZiM/8kDh3JOYd5EGkbJJs+Ymy92tsCBk6lKl41tV42qDoY1esZ4/GNTU2xOPSItrtC7UaLW4TCMqqSX9ML/NmzBPZ19cHsT7UyeYKNnaoXZyUFYELcPT98erNriCgyjJ/7+YxJcnC14815aGjBK01jY6BnVWZfVEdPXJGBop2Z4uaduhlEyjGosS2uD2LTdeHdkJzTW2OQJNnpGVZILemDa4hh09m+Iz4fYvIgpw+iOs85hmL46Hj0CPTE6RB9Xr2z0jGpkW/pg0rytaORWB98+Hmbzle0ZRo+8vTodBYXF+I+0NKA+Bhyw0TOqMXHuNlwsLMH3z/RUZWV7htEbW051wU+J8Zg6KERXo8rY6BlVmPizBw6cPIW5E3qglbN+Ep5h1OSNn5IQ5O2Gad2PaB3KNbDRMzZn7Ir62HowR7p07eO1S+twGKZWeD/OD0fPpGHx5F5iT1+L2bPRMzaDbkKNm7sHe7PO4MOHuuB+XtSbsRNSLoXj2y1RGBUWgPCG+jJ5go2esQm0DODYr+KQnXcJM8d2x4CmSVqHxDC1xmsrdsOznjPevqMIKNU6mj/DRs/UGGrNjJsTLS0DuOCJngh1V3+xY4bRC/P3BWNX5l58NrornEv3aR1OpbDRMzVi29lQPDEvBm4uTvjh6d5845WxK2gI8Qe/b8Jtrb1xb3N9mjzBRs/cMjTj9blF8QjwrIv5k3rCp3Sr1iExTK3yz5+TUVJWhum0NCBqd9Wo6sBGz9wSSw+2xus/JkgzXhc96gkXNnnGzqAV0v7YtwOvDWkLPx2bPMFGz1SbGYkt8OHaJPRv443ZI/KA0otah8Qwtc6bK5PR3scDT3ZK1zqUm8JGz1SLf21phnkxqRgZ6oeP7jyldTgMowlvbm6GnPzDmDk2TOxptkKa1bDRM1Yz9bdGWLX7sLQkmpar5TCMluzM747v46IxPiIQndz0b/IEGz1jFY+vcEfUwSypP9IIl6oMoxa0NKCPhyv+0SdL61Csho2euSE023X8vD1IPn4aHzzYGQ8E7dc6JIbRjDc2NcX+E0fkaqwwzqRANnqmSmi26+NfxyPr3EWe7crYPS+v98ayhCN46vYgDGxmrHOBjZ6plP2XwzFudjQu82xXhlHuT2Vi2h0hmNpNX5UprYGNnvkT0mzX+TFwq8OzXRnm6VUNsXZvFl4d0haTDXp/io2euQae7cowV5nwkwc2pZ7Av4Z3wNi2B7UO55Zho2euUHG26/djfVGvmE2esV/GLHNDXHoO3n+gEx4K1sfar7cKGz0j8eWuQHzwexJub+2NOfflAcWHtA6JYTTjwcV1sSszF5+O6qrrYmXWUlOjny00TOikUEflWCOhJUKBQhlCDwvl1vBzGBV5O8oHc6P382zXa8kQyhcqESoWovF0nNsm57LFFw9/dwYp2efwxZhQDPZN1jokm1BTo58r9LnQ/ArHXhVaL/Se8pj0Sg0/h1GJv/7uhV92ZfBs18oZIFTxl49z28Scdu6Hx76NQ/rpC1Jpg9ub7NY6JJtRU6PfDLl1U5ERQv2Vx/OEIsEngy6RZ7seN/RoglqGc9uknHDsg0e/jkHWuUuYM74HejdK1Dokm6JGH31TofK5wdnKPqMj8p06YOz8Qzzb9caUCa1Vtl8LzQTntimhiYFjhMnnXijC/Enh6O5hvjkjat+MLVNUGZMVIScnR+UwmHKk2a4zebarFfQF/XMBTYTWCV2/0jnntgnIKOmFR7+NQUFhiTQx0ChFyqqLGkZ/QsgHcsuHtiereN1MRfD29q7qhGFsCM92rRbHlC3l749C4eDcNhUHCnsKk49FWVkZFk/uhTYu8VqHpBpqGP1KoXGQb1jR9mcVPoOpJnG5oZj8Hc92tRI3IQvkUTf0eLDQ2+DcNg17L/bA2FkxqONkEY2e3ghyitU6JFWpqdEvgnxzqrFQptCbkE+CpUKThA5DHoLGaMg7W2n4ZCxaNnbDdzzb1Rqo7/1H5TGdIwuFfhPaBs5tw5N4vru4so2Fh6szFj7ZEwEOMVqHpDo1NfpHqjg+qIbvy9iArae74LUVScjMzcDjvVvgrX7ZAJu8NaQJdank+Glwbhua+LOhmDQ3Dt7uLljwZC+7afTwzFgTUurgitf+cMcPCfEIEq34pU/1RlgD7o9n7Jstp7rgqe+ojlM96R5V4+IorUOqNdjoTcba4x3xj5/34MyFPDzTPxgvhlOPGps8Y9+sz+6EKQu2I7hJfSye0ArudmTyBBu9STjl3BdvrUzGmqQEaWV6mvTRvu42rcNiGM1Zk9ke0xYnoINfAywfUwZLsTnKGlQHNnoTsCK9Ld5ZtRkXi0rw0l1t8JcuGZDvGzKMfUPnxsvLdiKsRSMsfvhC1TMfTA4bvYE57hCB13/cg82pu0Qie+K9BzqbfpgYw1jLwtQQvPHTLvQLaYx5I/O1DkdT2OgNyncprfD+b5ulx1cXRWCTZxhizt5gcZW7B4PaNsE3w89pHY7msNEbjPSSXnhl2W5sP5yM21p7492RHeFbFq11WAyjG2YktsCHa/diaKdm+HwIV5Em2OgNBC0O8tn6Lajr7IgPH+qC+1umAGzyDHOFj7b544uNqbg/1A8f8toKV2CjNwA0Xftl0Yrfm7VfaqW8NbwDGhfZ1/AwhrkZ06N9MSvqEB4Jb47p/U9oHY6uYKPXOR/E+2Pm5q1o5FYHXz3WTV7xhk2eYa7hH5uaYkFcOsZHBOKffbNu/gd2Bhu9TknI6yb1xaedOoSHuvvjP3fkw1Jmf+N/GeZmvLiuMVbsPFJhgiBzPWz0OuStLc0wPyYG/p518d2kcPTx2mW3438ZpjKozMfnCU0wOyodeZeO4YU7W2NK6GGtw9ItbPQ6gmpxvL4iCcfPHa5wCbpL67AYRjcUWTzxRXx9zNmagfzLBzC4fVNMHRTCs8BvAhu9DqCV5/++thArdsQj2NsNy57uzYuCMEwFCpyCMSP6MuZFZ+BCYbY0KOHZASFo60qLhbDJ3ww2eo357VgH/PPnPThbUITnBrbC38KOgouQMYzMWecwfB2Vhe9i9kslPu7p5CPOkxCE1KGFc8y7IpStYaPXiLTiXvjg9xT8nrwDnfwaYP7EnkrrhGEYKtI3c1Mavo+LQWFxKe7t4is1hIKcyOB5dbTqwkZfyyxPa4Ml245i++FNcHGy4NUhbTG5Uzq4dcIwQI5TX3y16RAWxm1EUUkp7gv1w5QBrdDSkcp7nNY6PMPCRl8LJF0Iw2Jh7r/sOo7zl3cjyNsNrw9ti5Gh/vAq2qJ1eAyjOScc++CryENYtG0jSkrLpJmtZPDNLbTMH89wrSls9CpBowMWJjeSWu8p2Vvh6mzBPZ18MTo8AN09qA9etOKL0rUOk2E0JcvSBzM2HsQP2yNRWlaGB7v745n+reDvQKU9crQOzzSw0duY2DNdpdb7b8nZKCzORmf/Bpg+siMeCTkAOXE5eRnmGCIwI/IgliVslPYfCguQJjzJBfpOahucCWGjtwEnHfuKhD2KJduP4uiZOHi4OuGRHgF4WKidKw39OqB1iAyjC46W9cYXogW/YkckLA4OUl2ap28PRjNapLuM69OoBRt9DViX1RFLRet94/714rIT6B3khRcHt8G9zfeJZ7MVMQyTUdJLGPwh/JS4CU4WBzzWq4Vk8E1KooBSPk/Uho2+mhwu7S31uy9LyMSp8wlo4u6Cv4hLzofFpWeAA9042qd1iAyjG2gY8ecbDmDlrk2o42SRZnw/dVsQGtPi3CVcfKy2YKO3kp8y2kp97/HpkXAULZIBbZpgdI8ADGyWJJ7NVMQwDHGwqCf+t+EgVu3eBFcnRzzZLwhPCEmjzIqPax2e3cFGfwOoDjy13n9KPIb8S7vQwqseXr67DR7s5i+3SHBW6xAZRhekXArHvqw8pGTnYc+xPMSmb0Y9Z0epe+bpiAZwL6by2se0DtNuYaO/DqqKtyjFX2q9Jx+PkiY1De3kI3XN9PTcKV6RIVokGRpHyTDaQDNWU7LyJVOXjT0fB0+eR3GpPB+EumfaNHXHswNa4ZnwEriUiivdYr7a1Rq7NnqapHH0zEWhAhwRooT9Y98JXBatj/Y+Hnh7RAeMaZsJSxlN2OBJG4x9UbGVvk+YO21PnV9/5XmfBq5o28wdA9s2QTtxvrTzcVdKFFwSOipaTZqFzlyHWkZ/t9BnQo5C3wq9p9Ln3BCatJR6vhWO5spGToZ+NPciMsU2U2wLSzZcea2Dg0hcD1c8FOaP0T2aK2VPD3IdeOZ6dJHbtqRiK51a6LStrJVOht62mYdk6l29TojWOvW15yli9IwaRk8nwBdCd0K+Q0mOuVJorwqfhbTinnKrnMz8dIG0Ld/Pv3TtEEfPes4IaFRPStQ7OzRFc/E4wLOedKyFNNWaXP2EIob5E7Wa22pArXS5hX4rrXSSMuGPW+uGQg2jD4fUFEaasr9YaARu8WQ47hBxxbiPVmiV0/Zk/mXxis1XXktlBsqNu0egp7QNUMz8amXI8oRlmGpj09ymdQjyLUG4XFwqri5LpSJeVKmxUNmnbVFJmbJfgqLiMly+cvza7eUKjyu+V/nx3AtFOJTDrXR7RQ2j94PUQXcFavn0vJU3un9RXSQe3Xhl3+IA+DasKxl3/zbe0ra5Vz34S+ZeF42lRbOLhM4pYhibYpPcpslDAz/aBKneEWpW74jOCTJtZ0eLNHCgjtg6K9vy47SlZSkHtROmLgy9PbfS7Q4tb8ZOVoScnMrrv0zoE4iLhSVXWuVyoSPKxvOKKlCkaqwMUx1umNvNnRLx2pC2kgH/yaQVY654/NpjDmhUvB2WsqquSqn7sUTR9XDjx15Rw+hpsGxAhX1/5dj1zFQEb2/vSm95yqUEGEY32CS3yaSf7HQLLflScKubuSXUMHq6QRUi1BLySTBaaIwKn8MwtQ3nNmNI1DD6YqFnhX6HPEphtlCyCp/DMLUN5zZjSNTqo1+jyCoSEhJOOXrdebiKpxvDvLOVzPzdCL18vxY2fC/Obevg71Y7WJXbepkZ632D57YLhdVWILWMmb8bYfbvZw2c2+bDcN9NL0bPMAzDqAQbPcMwjMkxgtHP1DoAFTHzdyPM/v1qipn/ffi76Qg2em0x83cjzP79aoqZ/334u+kIIxg9wzAMUwPY6BmGYUyOno3edHW/K0DT6OcLNYVcnIQuBT/TNCLbQ//daBgazSAdpnEseoNz29gYLrf1avSGr/t9E2iG5QtCO4TchRKE1sE834/4qxAVK/LQOhCdwbltfAyX23o1epvW/dYhWYqIfMhJQyVwzfL9qNjXPULThZ7XOBa9wbltbAyZ23o1epvVtDcAgUKhQnEax2FLPhV6GXKLjrkWzm1j8ykMmNt6NXp7ob7QcqFpMM+SPtRneRLyJXt/bUNhNIRzW0fo1eitrfttZJwhnwgLhFZoHIst6SM0XGiokCvkfszvhR7TMigdwbltXAyb23o1erPX/XYQmgW5//JjjWOxNa8pIvoLvQgDnAi1COe2cTFsbuvV6M1e95taBmOFkoQSlWOvoxrlbxnDwrnN1Dp6NXqiWnW/DQatYu6gdRC1QKQi5lo4t41PJAyU23o2eoZhGMYGsNEzDMOYHDZ6hmEYk6MLo/fy8ioLDAzUOgzGpNC6rbjxkn6qwbnNqIm1ua0Lo6cTIX6tmeo6MXriBotzqw7nNqMm1ua2LoyeYRiGUQ82esbwXLb4YsuxRrjDZ4/WoTCMTYnN7Qq/hnUR4BBTo/ex1ugbQq6b3RFyjemJQvuFlkAuXJQh9LBQLuQxtFR/mqYJFwiNh1yylGFU4dMYB8zcnID1z9+OQMfYyl7STmgX5HxfJvQm5JmpVDnSC3LtEprkUyjkArmeeneh00KjIOc3QbMiJwmVCE2FPOmJYVTjpR92w8+zLhY/VLP3sdboybh/E3pQqI5QPciz3dZDXjThVUWvCA2BPMWbRFX5voR5q/MxGnPKqS/mRW/EiC6+VZk8QY2SbpBrsNCEnl8hl5j9BLLZfwXZwL9UttRgaQW5PMH7kM2+vbLfQchX6A+h1pBNn2Fszi9H2uHY2US8NZxSLqlG72WN0TcQug1yy5woVEQ1tPsrx+ZBniX2inKcWkTU8qczr6GQD67WqGYYm/H5xoMoLinDtDvIc6u8vC1Vts6KKDcH4mqNGcrftyAb/QjlMUGt/88hX6XScfpRuCyUDrmmfPiNPpRhasLMzWkI9nbDoGY1M3nCGqOnS9wcoTlCXSBf5tIKK7RUWLl5Zyv7RGX1tv3ARs/YmGOIwKL4SDwUFoDmlpv6bSLkVjqt7nRI6CzkujNEeY4C1+YvPX8OcvcOHa94yVDxbxjGpsSc6Yrk43F4/4FOYi+1xu9njdHTa+iy9znICwhQN86r172mTFF1mKwIOTk51fxThhGJuP4AHBwcMHWQ8O+SEzd7eVfIV5c/CrVVOTTObaZGfLXpELzdXfBQcM1NnrDG6DMVla8SQ5ezZPR0ZpV3ydD2pPK8tfW2ZyqCt7d3dX8kGDsnrbgXVuzYhAl9WqJpyVZr/+ys0Eah3pBNn/KfWu0Vc7Q8fzOV56nr8jSqV0eec5u5ZVIuhWPLgS146a42uDoOoGZYY/TULUOXsvSpdFNrEOT1H0njIN+Mpe3PyutpoWMqw0r9mXQTli59dddt8+k3f2BbojzXYMEXkzSOhqkun6xLRV1nR0y9zVNY9fEqX3e6hHobpXLARF3Ii3LTDVYyfBpcQHl6ff7Sfozy/AbIV6t0fCHkGut0M5YGG8Tb9EsxjOCbLWmoV8cRT3XNrn4/SRVYO+qGum1otRgacUOLGk8QsggthTxKgRzzYeW1VH6VhlbSzaoC5bW6Iir+AHYkHb35CxldsvdiD6xOisJzA1vBvfjGpdyzsqQ2BjVSduNqzq6C3FAhk/+30E7Ii2VA2X4HOX/PQB5pQyQrf0t/R1cBU8Ajbhgbk2Xpg5W7NmJ8RCAsZVU3YKqLtUafKBRWyfFBlRyj36AptxqQ2pzOPY+5S2IwckhXLFvFw/uNyEdr96NBXWf8tUfOTVs8Hf2lHkUy5+vzlxos4ZX8ySWhqkYtT1ekax6dMqvS43zlqn9mR6VL24l9WwKltW/0puGb77egqbcH7h3cmY3egOzI64aN+2Pw8t1tRIsnQ+twGMZmlDq4YnH8Edzb2Qc+pVbfd7IKuzL6Pzbvw94D2Zj+ygg4OTre/A8Y3fHB7/vRuL4Lnu6coXUouodb8MZi5q5muFC4H5NvC4Z8/9922I3RZ+fkYcGKOKnLJsCvkdbhMLfA1tNdEJcej7fupUmqh7QOh2FsypytGegX0hhtXW1/j98ujL60tAxfz98E32YNpS4bxphQa54KPD3ejk3eGl56exlOnspHYIAXHrmvB9qG+GgdElMFPxxqjZz8JHzycFdcXVPddtiF0a/+YzcOHT7FXTYGZl1WR+zOTMD/PUg/1Pu1DscQHD9xTtoezMjBfz7/Df96cbhk+oz+oHIH7X08EOGVqMr7G9bo/ztrA+J2pMPfxxPv/X2kNEOSKCsrw6vTf0RmVi56dw/CsxMHYNnqHSgpKcWr7/5Y6XuVj1LgPk39QiNtgrzd8GAQm/zNiOgRjJF3d0UjTzekHc7BrEVbkX0yDz/9uhPTJt+hdXjMdWzI7oRDOdvx2eiuYm+fKp9hWKOfMCoCKQezJUOPTUhD77Bg6XjM9jTpmJdI8gmjI6RjxcWlN3orRuesPNwOqScS8fmYUMgjJZkbMWV8/yuP27f2xVOP3YZ/fbxKOl8Y/fH15kNSl+S9zdUxecKwRu9e31UkcD/834y1WC5a7D27BUmt+RVraO5LGZ4Zdzvc6rlIr62qpc4teWPw8bpUtBOXtUP97c/kq3PlWhUBfp7S9sLFwlqJmbGexPPdsS0jGv8cpu4AA8MaPdGlQwAG9WuL9VtSsHXbQSn5s06ew/DBXfjGk0lYfKA1jpxJwuzxNN+p5uVajUZ1rlyrIv3IKWnr7uaierxM9Zi5KU2a/De+vboDDAxt9MSYkeFI2ndMackDzUXr5YFh3TWOirEV/11/AN2aN0T/JvZn8kR1rlyJD79ciyEDOyI40Fu6L0U/EvOWyiWcqWHE6IfDpb3x+95ITOlP1bPVLclieKO/eKkI5y9cgouLMy6KS9OLFx1RILYe4gS5Gdxlo29mJwchO28fPhnVFXI5GvukOleuO/cclXQ9Ddxd8SA3gHQFFS9zdrRgXEQgUMRGf0PmLN4qjL0IYx/shdyzBVj6SwLmLonG1EkDtQ6NqSEzIg+hb6vG6OlpvyZfjrVXrq9PHYLfI5Olljw1fDwbuokfCn+MHBKKRuIxow/OOodhWUIMHujmB6+iLap/nqGNPnrbISTsPiLdqOobHoLikhKsj0qRbl7Fd0tHeGhLrUNkbpHPd7bAmQupeFGqyb1d63A0x9or1w5tfCUx+mZuzAkUlZTiiX5BuLqUh3oY1ujP5V/EvKXR0uNRw7vDYnFAHYsTRo0Iw4y5mzB70VbpstaaLhxGXxRZPPHN5jTc2b4pOruxyRN85Wou5scexp3tmqJl1Qva2xTDGj0l/vmCQrQOaoJunVtcOR4RFozfNiQj7cgpzF0sToQn+EQwGp/EuOF8YTZeGEwLfvPaHnzlai7m7wvG2YK9eOp2as3XTgVdwxr9tCcrn+FH44zfeWVELUfD2IpTzn0xN3ojhnfxRes6bPJ85Wo+vo1KR/cWngh1r70y6YY1esacfLHhIIpKyvC3O6g1H6N1OJrDV67mYvXR9sjM3Yl/SBOk9tTa57LRM7rhuEMEFsZH4uEwfzS3sMkTfOVqLqh4WVBjN9zpU3smT7DRM7rhsz8OSAb23MAQoFT9kQgMU5vEnumKpGNx+M/9ncReaq1+Nhs9owvSS3ph+Y5NGB/REs1svIwaw+iBr0VrnlZHG9Wqdk2eqI7RUyF3Gut2TGiYEN3qXyxEBa4ThMYKUdUkmo89X4hmc9B6WKOEMmwWMWNKqHCZq7Mjnu3vCxTZblHkYxdoHD6ow58qotFS4jOFPhOiZcaWCAVCzs+HhXKFHJTnhwoVCI3H1aER44TeUB7/W2iezQJlTE1qYTg2pW7BS9K8kIxa//zqGP1fIRdL9lD23xf6BLLZfyVE9QS+VLZ0wlABh9HK60bZKF7GhOy71AOrd0fh2QGt0LDItuPmnZykFM8Uortf7pAbJesgG/h6ofeEXlX0itAQoRBFPSHnNG3ph+FNIaquVqa8z0rIuc4wN4T65uvVccRTXbPl7KllrDV6f6F7hKYLPQ+51UO3+ccoz1PL5i3IJ8UI5TGxTOhz5fUafD3GCHy0NhUerk6YFp5j8yxp6pJMmwJlNx9yY8UPcp72V45T/kZCNno6TlekFAnNZmko5KO8ln4gzih/Q4/vFlpk24gZs5Ft6YOViRsxtncLWMqyNInBWqP/VOhlyC0igrprzgoVK/vUYvJTHtO2vEIPPX9Oef2pmoXKmJGd+d2wISVGuqS1lGWo/XGBQrR6SZxQU6Hysy5b2Scq5i9RnttVHWeYGzJna7rUapjUt6VoPujX6Kk/noZA0KVqfxt+9mRFyMnJseHbMkaCFvxuXL8O/tIlQ+2Pqi+0XGiaUN51z5XBttcSnNuMRKmDKxbFH8Wwzj7wLYvWLA5rjL6P0HDIN6do+h310dPNqobK31Ornbp2jimvpy0Vvs5Unm8A+abs9cxUBG9vb+7WsUOiT3dFbFoc3rxX3dV1IHcdkskvEFqhHDsBuUsmS9mWj+csz99yynOb1P+645FVfB7nNiPxzS4fnL+cgsm3UbmDymywdrDG6F9TRPQXelHoUaEfhB6EfDOWRiP8rLxmpbIfozy/Adw/z1TCB7+nwLeBK8a1U3d1HQFNKaVasB9XOFaep+/hz/n7LOS8ppuw1PVIPwa/C70r5Km8bjCunhcMUynUbUOlttu5btM0jpqMo6cbV3Qy0DAzKpI9SzlO2++EDkK+cTW6JgEy5uSPrI7YlZmA9x9Qd/JI9F6pBgzdI6LBA4nK4dchG/xSyKPEDkMeXkmsgXz1SvlLN3EnKMcpl98RKj9j38bVG7MM8yeWpbXByfzd+PChLmJvl6axVNfoI3H1cjVNKLyS11wSeujWQ2LsARpp07KxGx4KVnfySER7Skfp/lJYJU8PquQYXX1OqeLtZitimJtCpbZpUfu+jbU1eYJnxjK1zi9H2mH/iUT87xEaALNX63AYxuZsPNEJB05ux6fSMpj7tA6HjZ6pfWgWLLV07glgk2fMCZU7oPtPw1tob/IEGz1Tqyw52BqHTydh1jjqSUnSOhyGsTm7L4QhPn0r3rinHeQebu1ho2dqFapQGdq8IQY0ZZNnzMnMzYekmd4TO+jD5Ak2eqbWmJ0chOy8ffh4FI1CSNQ6HIaxOUdKe+PXPZH4y+3BkKcS6QM2eqbW+DLyEPq08kIvz0StQ2EYVfg2Kg3OFgvGRwQCxWz0jJ3xxc4WOH0hFS8OpjKtCVqHwzA2J9+pA37Ynoj7u/mhcXGU1uFcAxs9ozpFFk/M3JKGO9o1RZf6bPKMOZkdl4/LxaV4oh+VO9DXCmls9IzqfBrrhvOXs/HCYFr/I17rcBhGFebHZEiNmSCnWK1D+RNs9IyqnHLui7lbI3FvZ1+0cWGTZ8zJ9/tbIbcgGU/dTq35HTd9fW3DRs+oyoyNh1BYUoq/3Umt+Ritw2EYVfh2Szq6NW+I7h76M3mCjZ5RjeMOEVgYtwkPdfdHCwubPGNOfs3sgCNnduD1oTRBao/W4VQKGz2jGv9df0DaTh0UApTq6+YUw9iKrzcfkgr0DfbVp8kTbPSMKqSX9MLyHZvxeO8WaFa6VetwGEYV4nJDsTszFtNHdhR7B7QOp0rY6BlV+GRdKlycLHimfyugSJt1MhlGbajcAS2F+UiIfk2eYKNnbM6sPUFYtXsfnh3QCl5FW7QOh2FU4UBhT2zcvxkvSAMNDmsdzg1ho2dsynuxfqKVsw/3dPLB8z2Oah0Ow6jGzM1pqOvsiCe6FwGlWkdzY9joGZvx4h+NsWJHmtQv/1a/bK3DYRjVOOnYFyt3bcCjPVvApfS41uHcFDZ6xiZM+tlDXMYew/PiMvbZUH1fxjJMTaFFv0vLRN73bQl57Xh9w0bP1AiqYzN64SXsOpojjTzQ+00phrEFC+OOYGgnH/ghWutQrMIaow8Qmi/UFPLCyTOFPhNqJLREKFAoQ+hhoVwhB+X5oUIFQuOhxznBTI3JtvTB47PjceR0AWY82g2DfZO1DqkqAiFXmSJ1VI7dSv6OE3pDefxvoXkqx83okG+SWiL/cgqeuo3KHZzWOhyrsMboi4VegJzs7pBrzK6DfAKsF3pP6FVFrwgNEQpR1FPoS2XLmIi04p4YOysa5y8VY97EcPT03Kl1SDfilNAYyA2Wcihfq5O/9MPwphCtgUgNHjoPVkL+cWDsiDlbM6R1FdrX3aZ1KFZjjdFn4WonVD7kJc39hEYI9VeOU8smEvKJQsfphKKTgcq4NRTygRE6shirSDzfHRPnxsDJYsHip3qhnavuE/680JnrjlU3f+m16yq8Dz2+W2iRWkEz+uOT7QHIzjuI9x/sLPZ2aR2O1VS3jz5QKFQoDnJXTrl5Zyv7BP0IVBxXl6kcY6M3AZtyOuMv38eiqYcrvpvYE/4OxuijrITq5m9Vxxk74a+/e+GXXQcxoqsv+jU2jskT1TH6+kLLhaYJ5V33XJmi6jBZEXJycqr5p4wW/JTRFi8v2442zdwxd0K4mSZD3Ur+3gjObRORZemDyfO3Y2/Wcbx0Vxv8pUuG1iFVG2uN3hmyyS8QWqEcO4GrXTK0La9adQzyDdxy/JVj1zNTEby9vW15kjEqQLNdp6/ZhYhgL3z/wHnA+CZf3fwl9b/ueGQV7825bRK2n+smrmCjUFhcilnjwtC/SZLWId0S1hg9jUKYBblv/uMKx+lGFI1CeE/Z/lzh+LNCiyHfxDoH7rYxNO/H+uFrZbbr/4Zc39VtWKqbv78LvSvkqbxusNBrtRgvU8ssTA3BWytj0bxRPcx8PEyXK0dZizVG30dorBD9lCUqx16HfIIsFZoEudDDw8pzayAPTTsIeXjaBNuFy9Q2L/3hjeU70jC2Vwv86zbDznalWS1UEL8x5L51Gj1T3fylX7h3hMrvPL+NP9/gZUzCG5uaYmHcHgxo441v7iuEpcy4Jk9YY/S0nLlDFc8NquQYXapOueWIGN3wxMoG2JCSib/d0RrPdTP0bNd0yMMir6e6+TtbEWNSTjv3wzMLErAt4wj+0j8YL4Vn2vbujUbwzFjmT9Bs10cWXkLi0ZM825WxG5ILemDyd1HILSjEfx8JxbCAvVqHZDPY6JlrOOHYB4/Pisdh/c92ZRib8cuRdnh5WTQa13fBsqcjDDUZyhrY6Jkr0GzXx7+ORr4xZrsyjE2QBxskIjywEb56tB0aFpnL5Ak2ekZi1/numGCs2a4MUyNKHVwx6cc62JSahsd6Ncfbt50AirZrHZYqsNEz0mzXZ76PQxMPF8wXLfkAhxitQ2IYVaGr1yfnJyAzNw/vjuyE0SGpWoekKmz0ds7Ph9vipR9MOduVYSplQ3YnTFsSDVdnCxY+2QvdPcxfXJeN3o6ZnRyEf6821WxXhrkhMxJb4KN129HRtwG+HtsdzUq3ah1SrcBGb6e8H+eHrzftw9BOzfD5EK60y5if535thNVJqbivqy8+HnwasBOTJ9jo7ZCX13tjWYLhZ7syjFUcQwSenL8dqSey8PrQtniiY7rWIdU6bPR2xpMrG2C9OWa7MsxNic3tiikLolBSWoY5E8INV17YVrDR2wk023XMosvYceQk/n1fR4xpzbNdGXPzXUorvL0qHi0bu+Gbx8PQwmK/o8nY6E0ODZ1ctSsLa/dm43JRKWaM6Ya7/Hi2K2NuXtvQBEu2J+OOdk0w814qQGq/Jk+w0ZuQqFNdsHp3Fn5Lzsa5i9vg7uqEwe2b4fHeLdDJzZwTQhiGOOXUF09/nyCuXI9i6sBWmBZ29OZ/ZAew0ZuEmDNdsYrMfU8WcgviUd/FCXe2byrVkB/YjCpM5yhiGHOy+0IYnvouCnkXi6U6TXfzlesV2OgNTPzZUGHux4W5Z+PU+TjUq+MoLlWFuXf2wZ0+e8QrTiliGHPzY3pbvPZjDJq4u2DFMxFo4xKvdUi6go3eYCTkdcOqXcexRph7Tn6sNLtvUNumGCbMXe57P62IYczPnoIwLE/IxLyYXegd5IVvRjdFvWI2+ethozcAO/O7S33ua5KykJ0XAxcnCwa0aSK13O+RamafAS92xJgdKqG988hZoVxpm3TsHC4Xy5OexkcE4p99s4Di8xpHqU/Y6HUK9Teu3i1a7knZOHY2GnUcLbi9jTde69wW9zan5XtzFTGMOdkhrl53KKZOys7bIB2nc6Gjnwce69UC3Zp7IrR5Q7spZXCrsNHriL0Xe+AXYe7Ues/M3QpnRwf0C/HGC4Nb477AFPGKs4oYxlwcLet9tbV+9Cz2Hs9Dcak8JDKgUV2Et2wkGXqoMPbO0sixi4qOA6VaRm4M2Og1JuVSOFYnyeaecToKThYH9GnVGFMHheD+4MOwlNEY4HNah8kwNiX2TFfJ0Mu7YU5fiJSO04CCzv4N8ORtQVJrvWtAQ6WiKt97qglqGf3dQp8JOQp9K/SeSp+ja6iVcuZCobQG5ZkLRcgVj8+Ix9JW6ODJ80g7tQWOwtypguTTtwdjROvzcCkVrRTkmWJRYhPCuV1NqPb7jgp966kn8lFaFic9F+zthgFtm8it9QBPtHWlG6kXFGUCRVpGbh7UMHo6Ab4QuhPSfynQUkUrhQy90i4VRpIN+1rjpsdXjotj5UZeXEouHfmn96HuGM96ddDIrQ6ae9XDpH4tMaxdHbgX04iZfL4M1TemzO3qQKsynXEKk2ZZXy4uxaWiEml7uVjZFsmPD+VckIw9UbTa8y9tlv7Ww9UJXUUr/a4OzSRj79skVVyxXgLP8VAfNYw+XOigUJqyv1hoBG7hZFh9tD2yz10SDVvxf8I3yTvLH5eVKVvQ8auPrx4vk19fyd/86X0gv65E/E/exaI/tcALi8l9N/4pPtEQl0zbU5h2I7ENbFwP3dwaXjHyK1vleX+H6Ap/XahItNyLq/svw2iETXKbzHLuHt8r+2UVrtzKrruMK7vuqq7shs+VVflcqUj66w35Ej0uunrsqmnLxy7RcxWOyVwWWn/T70jnRptmHri3i69oqct960FOsZDyXdIRvmKtRdQwej+hivOOqeXTs5LXTVaEnJzKf83nx2RgW0b1RpY4iAQT/y8SzUF5rGyVxxbpsYP0Gofyxw7y6+k5D1dnyZj9GtZFJz8P6bFk2OWG7uYs7fs574dzaXlsReBrTLvAJrmdWRKKf6+OVCG8G0P57ersKA3PdXESW2cLXJUtHatXx0nktuXqa5yvvk7aOsmvu/q847X7Fd63pSOZOv0onFDEaImWN2NnKoK3t3elv+1LHi4Q/+tSmzFBbl6TCm78Mu5iYarmhrnd3BKDtJdrO6+vh8IqUcSYHTWM/phQQIV9f+UYwxgdzm3GkKhh9HSDKkSoJeSTYLTQGBU+h2FqG85txpCoYfTU7/Gs0O+QRynMFuIycowZ4NxmDIlaffRrFFlFQkLCKUevO6ta164xzFuC0czfjdDL92thw/fi3LYO/m61g1W5rZeZsd43eI7mO4fVViC1jJm/G2H272cNnNvmw3DfTS9GzzAMw6gEGz3DMIzJMYLRz9Q6ABUx83cjzP79aoqZ/334u+kINnptMfN3I8z+/WqKmf99+LvpCCMYPcMwDFMD9Gz0Zi4HS7Mr5ws1hTwXnVoIn2kake2h/240OoEmFg3TOBa9wbltbAyX23o1erOXg6WJNy8I7RByF0oQWgfzfD/ir0K05qGH1oHoDM5t42O43Nar0dus1LFOyVJE5ENOGqqMaJbvRzVg7hGaLvS8xrHoDc5tY2PI3Nar0VtbDtYMBAqFCsVpHIct+VToZcgtOuZaOLeNzacwYG7r1ejthfpCy4WmQV6NwQxQn+VJyJfs/bUNhdEQzm0doVejt4dysM6QT4QFQis0jsWW9BEaLjRUyBVyP+b3Qo9pGZSO4Nw2LobNbb0avdnLwdICV7Mg919+rHEstuY1RUR/oRdhgBOhFuHcNi6GzW29Gr3Zy8FSy2CsUJJQonLsdVSjKiJjWDi3mVpHr0ZPVKscrMGIgtzyMTuRiphr4dw2PpEwUG7r2egZhmEYG8BGzzAMY3LY6BmGYUwOGz3DMIzJYaNnGIYxOWz0DMMwJoeNnmEYxuSw0TMMw5ic/wcvLrY4LBSwbAAAAABJRU5ErkJggg==" name="Image2" align="bottom" width="100%" height="42%" border="0"/>
+
+								</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" width="76%" height="38" style="border: none; padding: 0cm">
+				<p align="left" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="left" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><font color="#000000"><span lang="hi-IN"><b>படமில்லாமல்
+				எப்படி கண்டுபிடிப்பது</b></span></font></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#000000"><b>?</b></font></font></font></p>
+			</td>
+			<td colspan="2" width="24%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="right" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">இணை
+				</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">-
+				pair</font></font></p>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td width="23%" height="37" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><b>நேருறவு</b></span></font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>y
+				= 2x + 4</b></font></font></font></p>
+			</td>
+			<td colspan="4" width="54%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><br/>
+
+				</p>
+			</td>
+			<td width="24%" style="border: 1px solid #000000; padding: 0.05cm">
+				<p align="left" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><b>வரியுறவு
+				</b></span></font></font>
+				</p>
+				<p align="left" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>y
+				= x<sup>2</sup> + x + 1</b></font></font></p>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td width="23%" height="42" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="right" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">2,
+				4, 6, 8</font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">இடைவெளி
+				→ </span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">2</font></font></font></p>
+			</td>
+			<td colspan="4" width="54%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#000000"><span style="font-weight: normal">x</span></font></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><font color="#000000"><span lang="hi-IN"><span style="font-weight: normal">க்கு
+				ஒரே இடைவெளியுள்ள நான்கு
+				எண்களை எடுத்துக்கொள்க</span></span></font></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#000000"><span style="font-weight: normal">.
+				</span></font></font></font>
+				</p>
+			</td>
+			<td width="24%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<p align="left" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">3,
+				6, 9, 12</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">இடைவெளி
+				→ </span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">3</font></font></font></p>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td width="23%" height="42" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">முதல்
+				இணை    </span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">:
+				2, 4</font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">இரண்டாம்
+				இணை </span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">:
+				10, 12</font></font></font></p>
+			</td>
+			<td colspan="4" width="54%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">அவற்றை
+				இரண்டு இணைகளாக பிரித்துக்கொள்ளவும்</span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.</span></font></font></font></p>
+			</td>
+			<td width="24%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN">முதல்
+				இணை </span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">:
+				 3, 6</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><font color="#000000"><span lang="hi-IN">இரண்டாம்
+				இணை </span></font></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#000000">:
+				9, 12</font></font></font></p>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td width="23%" height="42" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">x
+				= 2 → y = 8</font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">x
+				= 4 → y = 12</font></font></font></p>
+			</td>
+			<td colspan="4" width="54%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">முதல்
+				இணைக்கான </span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">y</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">யை
+				கண்டுபிடிக்கவும்</span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.</span></font></font></p>
+			</td>
+			<td width="24%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">x
+				= 3 → y = 13</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">x
+				= 6 → y = 43</font></font></font></p>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td width="23%" height="61" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">12
+				– 8 → 4</font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">4
+				– 2 → 2</font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#ffffff"><span style="background: #990000">
+				<font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>4/2
+				→ 2 </span></b></font></font></font>
+				</p>
+			</td>
+			<td colspan="4" width="54%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">y</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">யின்
+				இடைவெளியை </span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">x</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">சின்
+				இடைவெளியை கொண்டு வகுக்கவும்</span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">இது
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">(x,y)</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">யின்
+				உறவு எவ்வளவு <b>சரிவு</b>டையது
+				என்று காட்டும்</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.</span></font></font></p>
+			</td>
+			<td width="24%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">43
+				– 13 = 30</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">6
+				– 3 = 3</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#ffffff"><span style="background: #00cccc">
+				<font face="Lohit Tamil"><font size="4" style="font-size: 14pt">30/3
+				→ 10 </span></font></font></font>
+				</p>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td width="23%" height="42" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">x
+				= 10 → y = 24</font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">x
+				= 12 → y = 28</font></font></font></p>
+			</td>
+			<td colspan="4" width="54%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">இரண்டாம்
+				இணைக்கான </span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">y</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">யை
+				கண்டுபிடிக்கவும்</span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.</span></font></font></p>
+			</td>
+			<td width="24%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">x
+				= 9 → y = 91</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">x
+				= 12 → y = 157</font></font></font></p>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td width="23%" height="42" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">28
+				– 24 → 4</font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">12
+				– 10 → 2</font></font></font></p>
+				<p align="right" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="right" style="margin-bottom: 0cm"><font color="#ffffff"><span style="background: #ff33ff">
+				<font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>4/2
+				→ 2 </span></b></font></font></font>
+				</p>
+			</td>
+			<td colspan="4" width="54%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">மீண்டும்
+				</span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">y</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">யின்
+				இடைவெளியை </span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">x</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span lang="hi-IN"><span style="font-weight: normal">சின்
+				இடைவெளியை கொண்டு வகுக்கவும்</span></span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">இடப்புறம்
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#ffffff"><span style="font-weight: normal"><span style="background: #ff00cc">(2)</span></span></font><span style="font-weight: normal">
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">மேற்கண்ட
+				சரிவுடன்</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#ffffff"><span style="font-weight: normal"><span style="background: #660033">(2)</span></span></font><span style="font-weight: normal">
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">சமமாக
+				இருப்பதைக் காணலம்</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">ஆனால்
+				வலப்புறம்</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">,
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">மேற்கண்ட
+				சரிவைக் </span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#ffffff"><span style="font-weight: normal"><span style="background: #00cccc">(10)</span></span></font><span style="font-weight: normal">
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">காட்டிலும்
+				அதிகமாக</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><font color="#ffffff"><span style="font-weight: normal"><span style="background: #009999">(22)</span></span></font><span style="font-weight: normal">
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">இருப்பதைக்
+				காணலாம்</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.
+				</span></font></font>
+				</p>
+			</td>
+			<td width="24%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">157
+				– 91 → 66</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">12
+				– 9 → 3</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#ffffff"><span style="background: #009999">
+				<font face="Lohit Tamil"><font size="4" style="font-size: 14pt">66/3
+				→ 22 </span></font></font></font>
+				</p>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td colspan="6" width="100%" height="42" style="border: none; padding: 0cm">
+				<p align="right" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="left" style="margin-bottom: 0cm"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3" colspan="2" width="40%" height="32" valign="top" style="border: none; padding: 0cm">
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN">சரிவு
+				<b>மாறாமல்</b> இருக்குமாயின்
+				<b>நேருறவெ</b>ன்றும்</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">,
+				</font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><b>இல்லை</b>யெனில்
+				<b>வரியுறவெ</b>ன்றும் கொள்க</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">.</font></font></font></p>
+				<p align="left" style="margin-bottom: 0cm"><br/>
+
+				</p>
+				<p align="left" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><b>பின்குறிப்பு</b></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>:
+				</b></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span style="font-weight: normal">இரண்டு
+				இணைகளுக்காண இடைவெளியும்</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">,
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span style="font-weight: normal">இணைக்களுக்குள்
+				இருக்கும் இடைவெளியும்
+				ஒன்றாய் இருக்கவேண்டும்
+				என்று தேவையில்லை</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.
+				</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span style="font-weight: normal">அதாவது
+				</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">x</span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><span style="font-weight: normal">க்குகாண
+				நான்கு எண்கள் இப்படியும்
+				இருக்கலாம்</span></span></font></font><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">.</span></font></font></font></p>
+			</td>
+			<td width="10%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><br/>
+
+				</p>
+			</td>
+			<td colspan="2" width="26%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><b>இணைக்களுக்குள்
+				இடைவெளி</b></span></font></font></font></p>
+			</td>
+			<td width="24%" style="border: 1px solid #000000; padding: 0.05cm">
+				<p align="center" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><span lang="hi-IN"><b>இணைகளுக்காண
+				இடைவெளி</b></span></font></font></font></p>
+			</td>
+		</tr>
+		<tr>
+			<td width="10%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>2,
+				4 – 10, 12</b></font></font></font></p>
+			</td>
+			<td colspan="2" width="26%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>4-2
+				 → 2  ; 12-10  → 2</b></font></font></font></p>
+			</td>
+			<td width="24%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<p align="center" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>10
+				– 4 → 6</b></font></font></font></p>
+			</td>
+		</tr>
+		<tr>
+			<td width="10%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm; font-weight: normal">
+				<font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt">3,
+				10 – 20, 27</font></font></font></p>
+			</td>
+			<td colspan="2" width="26%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm">
+				<p align="center" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>10-3
+				→ 7  ;  27-20 → 7</b></font></font></font></p>
+			</td>
+			<td width="24%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm">
+				<p align="center" style="margin-bottom: 0cm"><font color="#000000"><font face="Lohit Tamil"><font size="4" style="font-size: 14pt"><b>20
+				– 10 → 10</b></font></font></font></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" width="40%" height="31" style="border: none; padding: 0cm">
+				<p><br/>
+<br/>
+
+				</p>
+			</td>
+			<td colspan="2" width="36%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm; font-weight: normal"><br/>
+
+				</p>
+			</td>
+			<td colspan="2" width="24%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" width="40%" height="38" style="border: none; padding: 0cm">
+				<p><br/>
+<br/>
+
+				</p>
+			</td>
+			<td colspan="2" width="36%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><br/>
+
+				</p>
+			</td>
+			<td colspan="2" width="24%" style="border: none; padding: 0cm">
+				<p style="margin-bottom: 0cm"><br/>
+
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p style="margin-bottom: 0cm"><br/>
+
+</p>
+</body>
+</html>
