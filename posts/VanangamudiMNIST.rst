@@ -1,7 +1,7 @@
 .. title: VanangamudiMNIST
 .. slug: vanangamudimnist
 .. date: 2017-04-27 23:00:00 UTC-03:00
-.. tags: deep learning, intro, mnist, draft
+.. tags: deep learning, intro, mnist
 .. description:
 .. category: neural networks
 .. section: neural networks
