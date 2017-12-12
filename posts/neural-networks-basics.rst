@@ -1,7 +1,7 @@
 .. title: Neural Networks Basics
 .. slug: neural-networks-basics
 .. date: 2017-05-22 22:44:46 UTC+05:30
-.. tags: neural networks, basics, draft, mathjax
+.. tags: neural networks, basics, mathjax
 .. category: neural networks
 .. link:
 .. description: Very basics of neural networks
