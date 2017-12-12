@@ -1,0 +1,191 @@
+<!-- 
+.. title: Replace algorithms with NN
+.. slug: replace-algorithms-with-nn
+.. date: 2017-07-24 01:02:52 UTC+05:30
+.. tags: mathematics, basics
+.. category: mathematics
+.. link:
+.. description:
+.. type: text-->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  </head>
+  <body>
+    <div>
+      <h1>Replace algorithms with NN </h1>
+      <div>This idea of replacing software components with neural networks comes
+        to us, or atleast me quite a few times. I remember now the very first
+        time I thought about this. At that time, I did not know anything about
+        neural networks other than that they are a part of Aritifcial
+        Intelligece. I and my friend Suriya were experimenting with lots of
+        stuff that we can get our hands on. Arduino, OpenCV, Matlab, Linux,
+        device drivers, etc. Yes it was five years ago when we came up with the
+        <a href="https://groups.google.com/forum/#%21forum/project-adhi" target="_blank">project</a>
+        "Adhi"(means beggining). It was about intergraing AI, NN specifically
+        into linux kernel to make it kernel smarter. </div>
+      <div><br>
+      </div>
+      <div>There is another one,where I imagined a symbolic AI and nerual
+        network will compete to become better than each other. This came to me,
+        when thinking of how to adjust what a network learns. Symbolic AI are
+        easier to tweak. </div>
+      <div><br>
+      </div>
+      <div>Like this one, most of the ideas presented below are old and may be
+        useless, and I admit, these are all just vague phrases and I never made
+        an attempt to implement them. But I hope this time I will get my hands
+        dirty and this&nbsp; would at least serve as a reference.
+        <div></div>
+        <h4>Why am I writing about this now?</h4>
+        <div>One. I have been planning to write a software to help with
+          tamil-linguitics. There is a lot to discuss in it, But I will limit
+          myself to one particular area - WordNet. Two. few months ago I wrote
+          about how computers can be more useful that being just a data storing
+          searching devices. In that post I tried to explain how we are
+          underutilising out computers. I always try to organize the directories
+          I have on my computers to aid the way I work. And there are some more
+          idea, and a combination of those things led me to write this.</div>
+      </div>
+      <div>
+        <div><br>
+        </div>
+      </div>
+      <div>In this post, lets discuss a specific algorithm - indexing. Why? No
+        reason. It is way more easier to explain, I guess.</div>
+      <div>
+        <h3>What is an index?</h3>
+      </div>
+      <div>Let's say you own stationery store, which sells, papers, notebooks
+        and pens. They way you place those items your shop is essential for
+        business. Pens are almost always placed at the front. Notebooks are
+        placed in wooden or iron racks and are organized interms of their
+        attributes - ruled/unruled, long/short, number of pages,
+        hard-bound/paperback and etc., and other items which are not frequently
+        sold will be kept somewhere in the back. Basically, we keep the
+        frequently sold items closer and the others farther. We can think of
+        this, as an indexing problem can't we?. The next time we buy notebooks
+        to sell, we place them accordingly.</div>
+      <div>
+        <h4>Indexing and related data-structures:</h4>
+      </div>
+      <div>Binary-tree can be thought of as decision tree, but it is not as
+        sophisticated a decision tree.We, humans out of our lessons came up with
+        B-tree. TODO</div>
+    </div>
+    <div><br>
+    </div>
+    <div>We can think of programming in general as way to give structure to
+      information/data.That is what we do right? We take in bunch of data and do
+      something with it. Before doing with it we need a idea of what it is.</div>
+    <div>
+      <h4><strong>A remotely relevant example: Games</strong></h4>
+    </div>
+    <div>Let's take games. Games are one of the crucial softwares. They are
+      complex and compuationally intensive and some time they look incredibly
+      real. The more real they look, the more computations it has to perform.
+      The real world has structure. A computer sits on a table. The table mostly
+      stays inside the building. Our hands holds items. Bikes and cards rides on
+      the roads. There are numeraous relationships between objects in the real
+      world. And there is always more in the real world that what meets the eye.
+      But we cannot afford to make the computer build an entire world inside.
+      The real world is too rich in complexity to be fit in 32Gb RAM, and the
+      physicsal laws are too intense to calculated with a quad core processor. </div>
+    <div><br>
+    </div>
+    <div>So what do we do? We cull off the things that don't meet the eyes and
+      display only what is necessary on the screen. How do we do it? Similar to
+      real world we simulate a small scale world inside the computer with help
+      of 'relationships between items'. Scene graph it is called. It is the data
+      structure that contains the objects and their relationships, including the
+      player from whose POV we see the world inside the game. So that the
+      computer can evaluate what object falls under our view, and only act upon
+      them, i.e apply physics over the objects in the view so that we feel
+      immersed in the game. To make it more closer to real world. The people who
+      create games optimize the game and its engines to run as fast as it can in
+      as many hardware platform as possible. </div>
+    <div><br>
+    </div>
+    <div>Different kinds of games build different kind of worlds. GTA Vicecity
+      was one of the first open world games I played.But mostgames are of closed
+      world nature. i.e you cannot move around freely.There are only a set of
+      paths you can go and only a set of things you can do. This in a way
+      reduces the complexity in the computation. </div>
+    <div><br>
+    </div>
+    <div>Have you ever wondered why some games are fast even at high graphical
+      quality settings and some games suck even atlow quality settings. That
+      depends upon whatoptimization havebeen done and whohasdone it.Naturally a
+      game programmer with good experience can optimize their games better than
+      one with lesser experience.</div>
+    <div>
+      <h4>A extrememly remotely relevant example: Software</h4>
+      <div>The sotware we use,&nbsp; Microsoft word or Libre office Writer, are
+        general purpose software. Almost every one will have some use for it.
+        There is a set of usual things we do with a computer. Write docs, paint
+        pictures, watch videos and such. But there are also specialised
+        softwares designed for specific purpose. For example banks use custom
+        designed software. The functionality of software is tailored its
+        industry. You need measurements to tailor stuff.</div>
+      <div>
+        <h4>A relevant example: Out stationery store</h4>
+      </div>
+      <div>The way you store items in you shop will differ from other shop, even
+        if it was a stationery store right next to yours or right opposite. Why
+        it dependsupon so many factors. The kind of items you sell, the number
+        of items in each kind, the amount of space you have etc. i,e how you
+        store, depends heavily on what you have. Index is a function of data.</div>
+    </div>
+    <div><br>
+    </div>
+    <div>Let's think about, database coders specifically people who code the
+      indexers. They cannot make any predictions about what kind data would be
+      stored in the databases other than few bare essentials like integers and
+      string. They cannot know what kind of data that I am going to store. It is
+      this disconnect which penalises performance.</div>
+    <div>
+      <h4>Coming back to WordNet</h4>
+    </div>
+    <div>
+      <div>Wordnet is like a thesaurus but richer in information. Building a
+        wordnet is no simple task. It is not exaggerating, when I say it might
+        take one's lifetime to build one. How can we make use of computer in
+        this endevour? This is a crude example and by no means intended to be
+        comprehesive implementaion note.</div>
+      <div><br>
+      </div>
+      <div>Let's say you have software, you lookup a word and it shows some
+        information regarding that word. Its meanings, etymology, different of
+        forms of use in sentences, etc. What if it can suggest a list of words
+        and you can edit the relationship between them, i.e if the suggested
+        list of words are closer to this word in some sense? Wouldn't it be
+        awesome?</div>
+      <div><br>
+      </div>
+      <div>But how can we pick a list of words from million words closer to the
+        one that we are reading? Well what if we can store the words in database
+        based on their similarity and relationships with other words? i.e store
+        the words closer in meaning, closer in memory.You mayask how can we know
+        what words are similar and what are not? </div>
+      <div><br>
+      </div>
+      <div>That is where machine learning comes in. There are machine learning
+        methods, word embedding for example can be used to come with a
+        similarity metric. And manual contributions via this linguistic software
+        inturn can be used to make it more accurate. Remember the meaning of the
+        words are always changing, and there is not absolute meaning and
+        relationship between a word and the meaning it represents. So this
+        process will always be incremental and iterative. </div>
+      <div><br>
+      </div>
+      <div>The point is, neural networks and other machine learning methods can
+        be use to determine where and how to store words.Unlike a general
+        purpose database, the neural network will learn what is in the data so
+        that it can store the data more efficiently and effectively.</div>
+      <div><br>
+      </div>
+      <div>I imagine a bunch of AI agents talking to each other can do a better
+        job at this than a handful of coders.</div>
+    </div>
+  </body>
+</html>
