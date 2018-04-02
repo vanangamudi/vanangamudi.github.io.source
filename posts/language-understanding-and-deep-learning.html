@@ -1,0 +1,96 @@
+<!--
+.. title: Language Understanding and Deep learning
+.. slug: language-understanding-and-deep-learning
+.. date: 2018-04-02 22:40:30 UTC+05:30
+.. tags: deep learning, nlp, language understanding, nlu, questions
+.. category: NLU
+.. link: 
+.. description: 
+.. type: text
+  -->
+  <body>
+    <div>[WIP]&nbsp; Created Monday 02 April 2018 </div>
+    <div><br>
+    </div>
+    <div>
+      <p></p>
+      <h4>
+        <b>Problems with word-embedding :-</b> </h4>
+      <p>
+        Word embeddings are flat and do not capture hierarchies. number space vs
+        word space, for example, the similarity between '8' and 'eight' should
+        be captured. Intrinstic and extrinsic properties of words are still
+        cannot be captured by word-embeddings alone. Sure we can use character
+        embedding and mix/concat them with word-embeddings, but that doesn't
+        seem to improve the performance by far. </p>
+      <p>
+        Meaning of a word is influenced by a lot of factors which can be
+        categorised into at least three. <br>
+        Syntax - character order, <br>
+        Semantics - what are the words that are seen together, <br>
+        Pragmatics - we don't know how to handle this so far, because it depends
+        upon lot of things like history, culture, contemporary styles of use and
+        so on.
+      </p>
+      <p></p>
+      <h4>
+        <b>Too deterministic - all the output are probability distributions.</b></h4>
+      <p>
+        The neural network, all it does it mapping between two
+        higher-dimensional spaces deterministically. To explain what I mean, I
+        will use the OpAmp vs Microcontroller analogy. In an OpAmp circuitry, the output is
+        completly based on the input and the relationship causal. Very similar
+        to mechanical devices, it just the medium is different, electrons in
+        circuitry. There is no arbitraryness . But I can, make a microcontroller
+        to light up an LED regardless of what is on the input side. </p>
+      <p>
+        I intentionally chose not use the phrase, 'program the microcontroller'.
+        Programs is set of rules operating over data structured in, well... a
+        structure. No shortcuts. But that is also a curse. Take NLP for example,
+        we cannot completely specify language in a set of rules. Although
+        link-grammar, dependency-grammar, and recent construction-grammars have
+        evolved to more powerful and expressive, NLP is still an unsolved
+        problem. </p>
+      <p>
+        Neural networks tend to perform well on a subset of language
+        defined-by/confined-to a text-corpus, because it tries to figure out the
+        rules by themselves. But that is not an easy job. It is like watching a
+        suspense-thriller. The story is intentionally crafted to make us
+        infer/predict something to be true, say the movie, Mulholland Drive is
+        about, Diane Selwyn is trying to help Camilla Rhodes figure who was she
+        before the car accident, only to break that prediction, like revealing
+        that all the damn is a dream, and make us feel like cheated and
+        astonished at the same time, so that we are kept invested in the story.
+        The movie is actually more complex and there can be more than one
+        interpretation other than the one I chose to present here, exactly like
+        there are many ways to interpret a sentence. </p>
+      <p>
+        It is safe to say the that kind of reactions are the after-effects of
+        the order in which the events in the story are presented to us. That is
+        exactly the reason why beural networks perform well on one dataset and
+        not on another and at times not even on the same dataset if the order of
+        the samples are shuffled. The reason why our prediction of the hero or
+        the anti-hero fails miserably is, we are trying to capture meaningful
+        structures of the story from and confined to the events presented, i.e
+        from the incomplete information. </p>
+      <p>
+        We are connecting dots which may or may not be actually connected in the
+        story, and we won't know it until we are provided with the full
+        information. Similarly the neural networks creates shortcuts and
+        believes that is the actual structure of the content in NLP case the
+        syntax, semantics and even pragmatics of the language. And believe the
+        datasets we currently have cannot capture all of three of them, in their
+        entirety. So what the neural networks ends up learning are mere
+        shortcuts, unless we provide them all sorts of combinations of meaning
+        sentences. </p>
+      <p>
+        For example to establish the similarity between word 'eight' and number
+        '8' we need to provide the neural network enough examples where 'eight'
+        and '8' exemplify similar meanings. In context of word-embeddings,
+        duplicating samples with 'eight' replaced with '8' and vice-versa should
+        capture that similarity, but how to make the neural network understand
+        that '1' and '8' are from number spaces and 'one' and 'eight' are from
+        word spaces? I don't know the answer to that. (May be multimodal
+        learning might help?) </p>
+    </div>
+  </body>
